@@ -238,11 +238,9 @@ class Text extends Component {
 
             newText.set(selectionStyle);
             newText.on({
-                mousedown: this._onFabricMousePlaceholderDown.bind(this),
-                mouseup: this._onFabricMouseUp.bind(this),
-                moving: this._onFabricMousePlaceholderMove.bind(this),
-                moved: this._onFabricMousePlaceholderMove.bind(this)
+                mouseup: this._onFabricMouseUp.bind(this)
             });
+            canvas.on("text:editing:entered", this.onFabricClearText.bind(this))
 
             canvas.add(newText);
 
@@ -579,20 +577,14 @@ class Text extends Component {
         }
     }
     
-    _onFabricMousePlaceholderMove(fEvent) {
-      setTimeout(e => {
-        const obj = this._selectedObj;
-        if (obj && obj.text == ' '){
-          obj.text = 'Enter text here'
-        }
-      },0)
-    }
-    _onFabricMousePlaceholderDown(fEvent) {
-      const obj = this._selectedObj;
-      obj.text = obj.text.trim()
-      if (obj && obj.text == 'Enter text here'){
-        obj.text = ' '
-      }
+    onFabricClearText(e) {
+      console.log(1)
+      const obj = this.getSelectedObj()
+      if (obj.text === "Enter text here") {
+        obj.selectAll();
+        obj.removeChars();
+        console.log(obj)
+      };
     }
     /**
      * Fabric mouseup event handler
