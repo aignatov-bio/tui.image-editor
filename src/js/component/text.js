@@ -238,7 +238,10 @@ class Text extends Component {
 
             newText.set(selectionStyle);
             newText.on({
-                mouseup: this._onFabricMouseUp.bind(this)
+                mousedown: this._onFabricMousePlaceholderDown.bind(this),
+                mouseup: this._onFabricMouseUp.bind(this),
+                moving: this._onFabricMousePlaceholderMove.bind(this),
+                moved: this._onFabricMousePlaceholderMove.bind(this)
             });
 
             canvas.add(newText);
@@ -373,6 +376,7 @@ class Text extends Component {
         textarea.className = TEXTAREA_CLASSNAME;
         textarea.setAttribute('style', TEXTAREA_STYLES);
         textarea.setAttribute('wrap', 'off');
+        textarea.setAttribute('data-empty', '1');
 
         container.appendChild(textarea);
 
@@ -423,7 +427,6 @@ class Text extends Component {
         const ratio = this.getCanvasRatio();
         const obj = this._editingObj;
         const textareaStyle = this._textarea.style;
-
         textareaStyle.width = `${Math.ceil(obj.getWidth() / ratio)}px`;
         textareaStyle.height = `${Math.ceil(obj.getHeight() / ratio)}px`;
     }
@@ -436,7 +439,7 @@ class Text extends Component {
         const ratio = this.getCanvasRatio();
         const obj = this._editingObj;
         const textareaStyle = this._textarea.style;
-
+        
         setTimeout(() => {
             obj.setText(this._textarea.value);
 
@@ -456,12 +459,10 @@ class Text extends Component {
         const textContent = this._textarea.value;
         let transWidth = (editingObj.getWidth() / ratio) - (editingObjInfos.width / ratio);
         let transHeight = (editingObj.getHeight() / ratio) - (editingObjInfos.height / ratio);
-
         if (ratio === 1) {
             transWidth /= 2;
             transHeight /= 2;
         }
-
         this._textarea.style.display = 'none';
 
         editingObj.set({
@@ -516,7 +517,7 @@ class Text extends Component {
         this.isPrevEditing = true;
 
         this.setSelectedInfo(fEvent.target, false);
-
+        
         if (obj) {
             // obj is empty object at initial time, will be set fabric object
             if (obj.text === '') {
@@ -532,7 +533,6 @@ class Text extends Component {
      */
     _onFabricSelect(fEvent) {
         this.isPrevEditing = true;
-
         this.setSelectedInfo(fEvent.target, true);
     }
 
@@ -543,7 +543,6 @@ class Text extends Component {
      */
     _onFabricMouseDown(fEvent) {
         const obj = fEvent.target;
-
         if (obj && !obj.isType('text')) {
             return;
         }
@@ -566,7 +565,6 @@ class Text extends Component {
         const obj = fEvent.target;
         const e = fEvent.e || {};
         const originPointer = this.getCanvas().getPointer(e);
-
         if (!obj) {
             this.fire(events.ADD_TEXT, {
                 originPosition: {
@@ -580,7 +578,22 @@ class Text extends Component {
             });
         }
     }
-
+    
+    _onFabricMousePlaceholderMove(fEvent) {
+      setTimeout(e => {
+        const obj = this._selectedObj;
+        if (obj && obj.text == ' '){
+          obj.text = 'Enter text here'
+        }
+      },0)
+    }
+    _onFabricMousePlaceholderDown(fEvent) {
+      const obj = this._selectedObj;
+      obj.text = obj.text.trim()
+      if (obj && obj.text == 'Enter text here'){
+        obj.text = ' '
+      }
+    }
     /**
      * Fabric mouseup event handler
      * @param {fabric.Event} fEvent - Current mousedown event on selected object
@@ -588,8 +601,8 @@ class Text extends Component {
      */
     _onFabricMouseUp(fEvent) {
         const newClickTime = (new Date()).getTime();
-
         if (this._isDoubleClick(newClickTime)) {
+            
             if (!this.useItext) {
                 this._changeToEditingMode(fEvent.target);
             }
@@ -617,7 +630,6 @@ class Text extends Component {
     _changeToEditingMode(obj) {
         const ratio = this.getCanvasRatio();
         const textareaStyle = this._textarea.style;
-
         this.isPrevEditing = true;
 
         obj.remove();

@@ -441,7 +441,7 @@ export default {
             },
             /* eslint-enable complexity */
             addText: pos => {
-                this.addText('Double Click', {
+                this.addText('Enter text here', {
                     position: pos.originPosition,
                     styles: {
                         fill: this.ui.text.textColor,
