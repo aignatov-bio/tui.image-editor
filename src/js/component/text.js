@@ -240,7 +240,7 @@ class Text extends Component {
             newText.on({
                 mouseup: this._onFabricMouseUp.bind(this)
             });
-            canvas.on("text:editing:entered", this.onFabricClearText.bind(this))
+            canvas.on('text:editing:entered', this.onFabricClearText.bind(this));
 
             canvas.add(newText);
 
@@ -284,13 +284,12 @@ class Text extends Component {
     setStyle(activeObj, styleObj) {
         return new Promise(resolve => {
             snippet.forEach(styleObj, (val, key) => {
-                if (activeObj[key] === val) {
+                const selectedPart = activeObj.getSelectionStyles();
+                if (selectedPart[key] === val) {
                     styleObj[key] = resetStyles[key] || '';
                 }
             }, this);
-
-            activeObj.set(styleObj);
-
+            this.getCanvas().getActiveObject().setSelectionStyles(styleObj);
             this.getCanvas().renderAll();
             resolve();
         });
@@ -437,10 +436,8 @@ class Text extends Component {
         const ratio = this.getCanvasRatio();
         const obj = this._editingObj;
         const textareaStyle = this._textarea.style;
-        
         setTimeout(() => {
             obj.setText(this._textarea.value);
-
             textareaStyle.width = `${Math.ceil(obj.getWidth() / ratio)}px`;
             textareaStyle.height = `${Math.ceil(obj.getHeight() / ratio)}px`;
         }, 0);
@@ -515,7 +512,6 @@ class Text extends Component {
         this.isPrevEditing = true;
 
         this.setSelectedInfo(fEvent.target, false);
-        
         if (obj) {
             // obj is empty object at initial time, will be set fabric object
             if (obj.text === '') {
@@ -576,16 +572,15 @@ class Text extends Component {
             });
         }
     }
-    
-    onFabricClearText(e) {
-      console.log(1)
-      const obj = this.getSelectedObj()
-      if (obj.text === "Enter text here") {
-        obj.selectAll();
-        obj.removeChars();
-        console.log(obj)
-      };
+
+    onFabricClearText() {
+        const obj = this.getSelectedObj();
+        if (obj.text === 'Enter text here') {
+            obj.selectAll();
+            obj.removeChars();
+        }
     }
+
     /**
      * Fabric mouseup event handler
      * @param {fabric.Event} fEvent - Current mousedown event on selected object
@@ -594,7 +589,6 @@ class Text extends Component {
     _onFabricMouseUp(fEvent) {
         const newClickTime = (new Date()).getTime();
         if (this._isDoubleClick(newClickTime)) {
-            
             if (!this.useItext) {
                 this._changeToEditingMode(fEvent.target);
             }
