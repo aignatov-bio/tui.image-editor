@@ -283,13 +283,23 @@ class Text extends Component {
      */
     setStyle(activeObj, styleObj) {
         return new Promise(resolve => {
-            snippet.forEach(styleObj, (val, key) => {
-                const selectedPart = activeObj.getSelectionStyles();
-                if (selectedPart[key] === val) {
-                    styleObj[key] = resetStyles[key] || '';
-                }
-            }, this);
-            this.getCanvas().getActiveObject().setSelectionStyles(styleObj);
+            if (styleObj.textAlign) {
+                snippet.forEach(styleObj, (val, key) => {
+                    if (activeObj[key] === val) {
+                        styleObj[key] = resetStyles[key] || '';
+                    }
+                }, this);
+                activeObj.set(styleObj);
+            } else {
+                snippet.forEach(styleObj, (val, key) => {
+                    const selectedPart = activeObj.getSelectionStyles();
+                    if (selectedPart[key] === val) {
+                        styleObj[key] = resetStyles[key] || '';
+                    }
+                }, this);
+                this.getCanvas().getActiveObject().setSelectionStyles(styleObj);
+            }
+
             this.getCanvas().renderAll();
             resolve();
         });
@@ -588,12 +598,12 @@ class Text extends Component {
      */
     _onFabricMouseUp(fEvent) {
         const newClickTime = (new Date()).getTime();
-        if (this._isDoubleClick(newClickTime)) {
-            if (!this.useItext) {
-                this._changeToEditingMode(fEvent.target);
-            }
-            this.fire(events.TEXT_EDITING); // fire editing text event
+        // if (this._isDoubleClick(newClickTime)) {
+        if (!this.useItext) {
+            this._changeToEditingMode(fEvent.target);
         }
+        this.fire(events.TEXT_EDITING); // fire editing text event
+        // }
 
         this._lastClickTime = newClickTime;
     }

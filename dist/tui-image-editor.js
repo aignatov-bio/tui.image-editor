@@ -14332,13 +14332,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var _this4 = this;
 
 	            return new _promise2.default(function (resolve) {
-	                _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
-	                    var selectedPart = activeObj.getSelectionStyles();
-	                    if (selectedPart[key] === val) {
-	                        styleObj[key] = resetStyles[key] || '';
-	                    }
-	                }, _this4);
-	                _this4.getCanvas().getActiveObject().setSelectionStyles(styleObj);
+	                if (styleObj.textAlign) {
+	                    _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
+	                        if (activeObj[key] === val) {
+	                            styleObj[key] = resetStyles[key] || '';
+	                        }
+	                    }, _this4);
+	                    activeObj.set(styleObj);
+	                } else {
+	                    _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
+	                        var selectedPart = activeObj.getSelectionStyles();
+	                        if (selectedPart[key] === val) {
+	                            styleObj[key] = resetStyles[key] || '';
+	                        }
+	                    }, _this4);
+	                    _this4.getCanvas().getActiveObject().setSelectionStyles(styleObj);
+	                }
+
 	                _this4.getCanvas().renderAll();
 	                resolve();
 	            });
@@ -14697,12 +14707,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_onFabricMouseUp',
 	        value: function _onFabricMouseUp(fEvent) {
 	            var newClickTime = new Date().getTime();
-	            if (this._isDoubleClick(newClickTime)) {
-	                if (!this.useItext) {
-	                    this._changeToEditingMode(fEvent.target);
-	                }
-	                this.fire(events.TEXT_EDITING); // fire editing text event
+	            // if (this._isDoubleClick(newClickTime)) {
+	            if (!this.useItext) {
+	                this._changeToEditingMode(fEvent.target);
 	            }
+	            this.fire(events.TEXT_EDITING); // fire editing text event
+	            // }
 
 	            this._lastClickTime = newClickTime;
 	        }
