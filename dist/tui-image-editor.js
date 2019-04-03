@@ -14652,13 +14652,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (obj && !obj.isType('text')) {
 	                return;
 	            }
-
-	            if (this.isPrevEditing) {
-	                this.isPrevEditing = false;
-
-	                return;
-	            }
-
 	            this._fireAddText(fEvent);
 	        }
 
