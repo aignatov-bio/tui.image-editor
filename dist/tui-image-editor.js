@@ -8968,6 +8968,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _this.ui.initializeImgUrl = imagePath;
 	                    _this.ui.resizeEditor({ imageSize: sizeValue });
 	                    _this.clearUndoStack();
+	                    _this.fire('image_loaded');
 	                });
 	            },
 	            undo: function undo() {

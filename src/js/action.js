@@ -44,6 +44,7 @@ export default {
                     this.ui.initializeImgUrl = imagePath;
                     this.ui.resizeEditor({imageSize: sizeValue});
                     this.clearUndoStack();
+                    this.fire('image_loaded');
                 })
             ),
             undo: () => {
