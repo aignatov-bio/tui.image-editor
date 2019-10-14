@@ -1,8 +1,8 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Test cases of "src/js/component/line.js"
  */
-import fabric from 'fabric/dist/fabric.require';
+import fabric from 'fabric';
 import $ from 'jquery';
 import Graphics from '../src/js/graphics';
 import Line from '../src/js/component/line';

@@ -1,8 +1,7 @@
 /**
  * webpack.config.js created on 2016. 12. 01.
- * @author NHN Ent. FE Development Lab <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Lab <dl_javascript@nhn.com>
  */
-
 const pkg = require('./package.json');
 const webpack = require('webpack');
 const SafeUmdPlugin = require('safe-umd-webpack-plugin');
@@ -43,11 +42,11 @@ module.exports = {
             'amd': 'tui-color-picker',
             'root': ['tui', 'colorPicker']
         },
-        'fabric/dist/fabric.require': {
-            'commonjs': 'fabric/dist/fabric.require',
-            'commonjs2': 'fabric/dist/fabric.require',
-            'amd': 'fabric/dist/fabric.require',
-            'root': ['fabric']
+        'fabric': {
+            'commonjs': ['fabric', 'fabric'],
+            'commonjs2': ['fabric', 'fabric'],
+            'amd': 'fabric',
+            'root': 'fabric'
         }
     },
     module: {

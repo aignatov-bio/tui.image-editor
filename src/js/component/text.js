@@ -1,8 +1,8 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Text module
  */
-import fabric from 'fabric/dist/fabric.require';
+import fabric from 'fabric';
 import snippet from 'tui-code-snippet';
 import Promise from 'core-js/library/es6/promise';
 import Component from '../interface/component';
@@ -173,7 +173,7 @@ class Text extends Component {
             canvas.forEachObject(obj => {
                 if (obj.type === 'i-text') {
                     if (obj.text === '') {
-                        obj.remove();
+                        canvas.remove(obj);
                     } else {
                         obj.set({
                             left: obj.left + (obj.width / 2),
@@ -185,7 +185,7 @@ class Text extends Component {
                 }
             });
         } else {
-            canvas.deactivateAllWithDispatch();
+            canvas.discardActiveObject();
             this._removeTextarea();
         }
 
@@ -311,7 +311,7 @@ class Text extends Component {
      * @returns {String} text
      */
     getText(activeObj) {
-        return activeObj.getText();
+        return activeObj.text;
     }
 
     /**
@@ -434,8 +434,8 @@ class Text extends Component {
         const ratio = this.getCanvasRatio();
         const obj = this._editingObj;
         const textareaStyle = this._textarea.style;
-        textareaStyle.width = `${Math.ceil(obj.getWidth() / ratio)}px`;
-        textareaStyle.height = `${Math.ceil(obj.getHeight() / ratio)}px`;
+        textareaStyle.width = `${Math.ceil(obj.width / ratio)}px`;
+        textareaStyle.height = `${Math.ceil(obj.height / ratio)}px`;
     }
 
     /**
@@ -447,9 +447,10 @@ class Text extends Component {
         const obj = this._editingObj;
         const textareaStyle = this._textarea.style;
         setTimeout(() => {
-            obj.setText(this._textarea.value);
-            textareaStyle.width = `${Math.ceil(obj.getWidth() / ratio)}px`;
-            textareaStyle.height = `${Math.ceil(obj.getHeight() / ratio)}px`;
+            obj.text(this._textarea.value);
+
+            textareaStyle.width = `${Math.ceil(obj.width / ratio)}px`;
+            textareaStyle.height = `${Math.ceil(obj.height / ratio)}px`;
         }, 0);
     }
 
@@ -462,8 +463,10 @@ class Text extends Component {
         const editingObj = this._editingObj;
         const editingObjInfos = this._editingObjInfos;
         const textContent = this._textarea.value;
-        let transWidth = (editingObj.getWidth() / ratio) - (editingObjInfos.width / ratio);
-        let transHeight = (editingObj.getHeight() / ratio) - (editingObjInfos.height / ratio);
+
+        let transWidth = (editingObj.width / ratio) - (editingObjInfos.width / ratio);
+        let transHeight = (editingObj.height / ratio) - (editingObjInfos.height / ratio);
+
         if (ratio === 1) {
             transWidth /= 2;
             transHeight /= 2;
@@ -504,11 +507,11 @@ class Text extends Component {
      */
     _onFabricScaling(fEvent) {
         const obj = fEvent.target;
-        const scalingSize = obj.getFontSize() * obj.getScaleY();
+        const scalingSize = obj.fontSize * obj.scaleY;
 
-        obj.setFontSize(scalingSize);
-        obj.setScaleX(1);
-        obj.setScaleY(1);
+        obj.fontSize = scalingSize;
+        obj.scaleX = 1;
+        obj.scaleY = 1;
     }
 
     /**
@@ -525,7 +528,7 @@ class Text extends Component {
         if (obj) {
             // obj is empty object at initial time, will be set fabric object
             if (obj.text === '') {
-                obj.remove();
+                this.getCanvas().remove(obj);
             }
         }
     }
@@ -590,10 +593,14 @@ class Text extends Component {
      * @private
      */
     _onFabricMouseUp(fEvent) {
+        const {target} = fEvent;
         const newClickTime = (new Date()).getTime();
-        // if (this._isDoubleClick(newClickTime)) {
-        if (!this.useItext) {
-            this._changeToEditingMode(fEvent.target);
+
+        if (target.isEditing || this._isDoubleClick(newClickTime)) {
+            if (!this.useItext) {
+                this._changeToEditingMode(target);
+            }
+            this.fire(events.TEXT_EDITING); // fire editing text event
         }
         this.fire(events.TEXT_EDITING); // fire editing text event
         // }
@@ -619,34 +626,37 @@ class Text extends Component {
     _changeToEditingMode(obj) {
         const ratio = this.getCanvasRatio();
         const textareaStyle = this._textarea.style;
+        const canvas = this.getCanvas();
+
         this.isPrevEditing = true;
 
-        obj.remove();
+        canvas.remove(obj);
+        canvas.discardActiveObject();
 
         this._editingObj = obj;
-        this._textarea.value = obj.getText();
+        this._textarea.value = obj.text;
 
         this._editingObjInfos = {
-            left: this._editingObj.getLeft(),
-            top: this._editingObj.getTop(),
-            width: this._editingObj.getWidth(),
-            height: this._editingObj.getHeight()
+            left: obj.left,
+            top: obj.top,
+            width: obj.width,
+            height: obj.height
         };
 
         textareaStyle.display = 'block';
         textareaStyle.left = `${obj.oCoords.tl.x / ratio}px`;
         textareaStyle.top = `${obj.oCoords.tl.y / ratio}px`;
-        textareaStyle.width = `${Math.ceil(obj.getWidth() / ratio)}px`;
-        textareaStyle.height = `${Math.ceil(obj.getHeight() / ratio)}px`;
-        textareaStyle.transform = `rotate(${obj.getAngle()}deg)`;
-        textareaStyle.color = obj.getFill();
+        textareaStyle.width = `${Math.ceil(obj.width / ratio)}px`;
+        textareaStyle.height = `${Math.ceil(obj.height / ratio)}px`;
+        textareaStyle.transform = `rotate(${obj.angle}deg)`;
+        textareaStyle.color = obj.fill;
 
-        textareaStyle['font-size'] = `${obj.getFontSize() / ratio}px`;
-        textareaStyle['font-family'] = obj.getFontFamily();
-        textareaStyle['font-style'] = obj.getFontStyle();
-        textareaStyle['font-weight'] = obj.getFontWeight();
-        textareaStyle['text-align'] = obj.getTextAlign();
-        textareaStyle['line-height'] = obj.getLineHeight() + EXTRA_PIXEL_LINEHEIGHT;
+        textareaStyle['font-size'] = `${obj.fontSize / ratio}px`;
+        textareaStyle['font-family'] = obj.fontFamily;
+        textareaStyle['font-style'] = obj.fontStyle;
+        textareaStyle['font-weight'] = obj.fontWeight;
+        textareaStyle['text-align'] = obj.textAlign;
+        textareaStyle['line-height'] = obj.lineHeight + EXTRA_PIXEL_LINEHEIGHT;
         textareaStyle['transform-origin'] = 'left top';
 
         this._textarea.focus();

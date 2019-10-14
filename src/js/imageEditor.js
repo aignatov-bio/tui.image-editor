@@ -1,5 +1,5 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Image-editor application class
  */
 import snippet from 'tui-code-snippet';
@@ -87,7 +87,10 @@ class ImageEditor {
          * @type {Ui}
          */
         if (options.includeUI) {
-            this.ui = new UI(wrapper, options.includeUI, this.getActions());
+            const UIOption = options.includeUI;
+            UIOption.usageStatistics = options.usageStatistics;
+
+            this.ui = new UI(wrapper, UIOption, this.getActions());
             options = this.ui.setUiDefaultSelectionStyle(options);
         }
 
@@ -151,43 +154,46 @@ class ImageEditor {
             this.ui.initCanvas();
             this.setReAction();
         }
+        fabric.enableGLFiltering = false;
     }
 
     /**
      * Image filter result
      * @typedef {Object} FilterResult
-     * @property {string} type - filter type like 'mask', 'Grayscale' and so on
-     * @property {string} action - action type like 'add', 'remove'
+     * @property {string} type - Filter type like 'mask', 'Grayscale' and so on
+     * @property {string} action - Action type like 'add', 'remove'
      */
 
     /**
      * Flip status
      * @typedef {Object} FlipStatus
-     * @property {boolean} flipX - x axis
-     * @property {boolean} flipY - y axis
-     * @property {Number} angle - angle
+     * @property {boolean} flipX - X axis
+     * @property {boolean} flipY - Y axis
+     * @property {Number} angle - Angle
      */
     /**
      * Rotation status
      * @typedef {Number} RotateStatus
-     * @property {Number} angle - angle
+     * @property {Number} angle - Angle
      */
 
     /**
      * Old and new Size
      * @typedef {Object} SizeChange
-     * @property {Number} oldWidth - old width
-     * @property {Number} oldHeight - old height
-     * @property {Number} newWidth - new width
-     * @property {Number} newHeight - new height
+     * @property {Number} oldWidth - Old width
+     * @property {Number} oldHeight - Old height
+     * @property {Number} newWidth - New width
+     * @property {Number} newHeight - New height
      */
 
     /**
-     * @typedef {string} ErrorMsg - {string} error message
+     * Error message is {String} type
+     * @typedef {String} ErrorMsg
      */
 
     /**
-     * @typedef {Object} ObjectProps - graphics object properties
+     * Graphics object properties
+     * @typedef {Object} ObjectProps
      * @property {number} id - object id
      * @property {string} type - object type
      * @property {string} text - text content
@@ -225,7 +231,7 @@ class ImageEditor {
 
         if (applyGroupSelectionStyle) {
             this.on('selectionCreated', eventTarget => {
-                if (eventTarget.type === 'group') {
+                if (eventTarget.type === 'activeSelection') {
                     eventTarget.set(selectionStyle);
                 }
             });
@@ -311,21 +317,28 @@ class ImageEditor {
      */
     /* eslint-disable complexity */
     _onKeyDown(e) {
+        const {ctrlKey, keyCode, metaKey} = e;
         const activeObject = this._graphics.getActiveObject();
-        const activeObjectGroup = this._graphics.getActiveGroupObject();
-        const existRemoveObject = activeObject || activeObjectGroup;
+        const activeObjectGroup = this._graphics.getActiveObjects();
+        const existRemoveObject = activeObject || (activeObjectGroup && activeObjectGroup.size());
+        const isModifierKey = (ctrlKey || metaKey);
 
-        if ((e.ctrlKey || e.metaKey) && e.keyCode === keyCodes.Z) {
-            // There is no error message on shortcut when it's empty
-            this.undo()['catch'](() => {});
+        if (isModifierKey) {
+            if (keyCode === keyCodes.Z) {
+                // There is no error message on shortcut when it's empty
+                this.undo()['catch'](() => {
+                });
+            } else if (keyCode === keyCodes.Y) {
+                // There is no error message on shortcut when it's empty
+                this.redo()['catch'](() => {
+                });
+            }
         }
 
-        if ((e.ctrlKey || e.metaKey) && e.keyCode === keyCodes.Y) {
-            // There is no error message on shortcut when it's empty
-            this.redo()['catch'](() => {});
-        }
+        const isDeleteKey = keyCode === keyCodes.BACKSPACE || keyCode === keyCodes.DEL;
+        const isEditing = activeObject && activeObject.isEditing;
 
-        if (((e.keyCode === keyCodes.BACKSPACE || e.keyCode === keyCodes.DEL) && existRemoveObject)) {
+        if (!isEditing && isDeleteKey && existRemoveObject) {
             e.preventDefault();
             this.removeActiveObject();
         }
@@ -337,12 +350,11 @@ class ImageEditor {
      */
     removeActiveObject() {
         const activeObject = this._graphics.getActiveObject();
-        const activeObjectGroup = this._graphics.getActiveGroupObject();
+        const activeObjectGroup = this._graphics.getActiveObjects();
 
-        if (activeObjectGroup) {
-            const objects = activeObjectGroup.getObjects();
+        if (activeObjectGroup && activeObjectGroup.size()) {
             this.discardSelection();
-            this._removeObjectStream(objects);
+            this._removeObjectStream(activeObjectGroup.getObjects());
         } else if (activeObject) {
             const activeObjectId = this._graphics.getObjectId(activeObject);
             this.removeObject(activeObjectId);
@@ -537,6 +549,20 @@ class ImageEditor {
         const theArgs = [this._graphics].concat(args);
 
         return this._invoker.execute(commandName, ...theArgs);
+    }
+
+    /**
+     * Invoke command
+     * @param {String} commandName - Command name
+     * @param {...*} args - Arguments for creating command
+     * @returns {Promise}
+     * @private
+     */
+    executeSilent(commandName, ...args) {
+        // Inject an Graphics instance as first parameter
+        const theArgs = [this._graphics].concat(args);
+
+        return this._invoker.executeSilent(commandName, ...theArgs);
     }
 
     /**
@@ -745,22 +771,31 @@ class ImageEditor {
     /**
      * @param {string} type - 'rotate' or 'setAngle'
      * @param {number} angle - angle value (degree)
+     * @param {boolean} isSilent - is silent execution or not
      * @returns {Promise<RotateStatus, ErrorMsg>}
      * @private
      */
-    _rotate(type, angle) {
-        return this.execute(commands.ROTATE_IMAGE, type, angle);
+    _rotate(type, angle, isSilent) {
+        let result = null;
+        if (isSilent) {
+            result = this.executeSilent(commands.ROTATE_IMAGE, type, angle);
+        } else {
+            result = this.execute(commands.ROTATE_IMAGE, type, angle);
+        }
+
+        return result;
     }
 
     /**
      * Rotate image
      * @returns {Promise}
      * @param {number} angle - Additional angle to rotate image
+     * @param {boolean} isSilent - is silent execution or not
      * @returns {Promise<RotateStatus, ErrorMsg>}
      * @example
-     * imageEditor.setAngle(10); // angle = 10
+     * imageEditor.rotate(10); // angle = 10
      * imageEditor.rotate(10); // angle = 20
-     * imageEidtor.setAngle(5); // angle = 5
+     * imageEidtor.rotate(5); // angle = 5
      * imageEidtor.rotate(-95); // angle = -90
      * imageEditor.rotate(10).then(status => {
      *     console.log('angle: ', status.angle);
@@ -768,13 +803,14 @@ class ImageEditor {
      *     console.log('error: ', message);
      * });
      */
-    rotate(angle) {
-        return this._rotate('rotate', angle);
+    rotate(angle, isSilent) {
+        return this._rotate('rotate', angle, isSilent);
     }
 
     /**
      * Set angle
      * @param {number} angle - Angle of image
+     * @param {boolean} isSilent - is silent execution or not
      * @returns {Promise<RotateStatus, ErrorMsg>}
      * @example
      * imageEditor.setAngle(10); // angle = 10
@@ -788,8 +824,8 @@ class ImageEditor {
      *     console.log('error: ', message);
      * });
      */
-    setAngle(angle) {
-        return this._rotate('setAngle', angle);
+    setAngle(angle, isSilent) {
+        return this._rotate('setAngle', angle, isSilent);
     }
 
     /**

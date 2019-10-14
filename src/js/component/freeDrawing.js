@@ -1,8 +1,8 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Free drawing module, Set brush
  */
-import fabric from 'fabric/dist/fabric.require';
+import fabric from 'fabric';
 import Component from '../interface/component';
 import consts from '../consts';
 

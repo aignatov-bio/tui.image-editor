@@ -1,10 +1,10 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Add filter module
  */
 import {isUndefined, extend, forEach, filter} from 'tui-code-snippet';
 import Promise from 'core-js/library/es6/promise';
-import fabric from 'fabric/dist/fabric.require';
+import fabric from 'fabric';
 import Component from '../interface/component';
 import Mask from '../extension/mask';
 import consts from '../consts';
@@ -140,7 +140,11 @@ class Filter extends Component {
      * @private
      */
     _apply(sourceImg, callback) {
-        sourceImg.applyFilters(callback);
+        sourceImg.filters.push();
+        const result = sourceImg.applyFilters();
+        if (result) {
+            callback();
+        }
     }
 
     /**

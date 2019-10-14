@@ -1,5 +1,5 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Image flip module
  */
 import snippet from 'tui-code-snippet';
@@ -75,7 +75,7 @@ class Flip extends Component {
         if (isChangingFlipY) {
             angle *= -1;
         }
-        canvasImage.setAngle(parseFloat(angle)).setCoords();// parseFloat for -0 to 0
+        canvasImage.rotate(parseFloat(angle)).setCoords();// parseFloat for -0 to 0
     }
 
     /**

@@ -1,9 +1,9 @@
 /**
- * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
+ * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview Tests command with command-factory
  */
 import snippet from 'tui-code-snippet';
-import fabric from 'fabric/dist/fabric.require';
+import fabric from 'fabric';
 import Graphics from '../src/js/graphics';
 import consts from '../src/js/consts';
 
