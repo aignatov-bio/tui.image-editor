@@ -240,12 +240,22 @@ class Text extends Component {
             newText.on({
                 mouseup: this._onFabricMouseUp.bind(this)
             });
-            canvas.on('text:editing:entered', this.onFabricClearText.bind(this));
+            canvas.on('text:editing:entered', onFabricClearText);
 
             canvas.add(newText);
 
             if (!canvas.getActiveObject()) {
                 canvas.setActiveObject(newText);
+            }
+
+            function onFabricClearText(e) {
+                const obj = canvas.getActiveObject();
+                if (e.target.text === 'Enter text here') {
+                    obj.selectAll();
+                    obj.removeChars();
+                    e.target.text = '';
+                    canvas.renderAll();
+                }
             }
 
             this.isPrevEditing = true;
@@ -283,21 +293,29 @@ class Text extends Component {
      */
     setStyle(activeObj, styleObj) {
         return new Promise(resolve => {
-            if (styleObj.textAlign) {
-                snippet.forEach(styleObj, (val, key) => {
-                    if (activeObj[key] === val) {
-                        styleObj[key] = resetStyles[key] || '';
-                    }
-                }, this);
+            const allSelect = activeObj.selectionEnd === activeObj.selectionStart;
+            const textAlignChange = styleObj.textAlign;
+
+            if (allSelect) {
+                activeObj.selectAll();
+            }
+
+            let selectedObject = activeObj;
+
+            if (!textAlignChange) {
+                selectedObject = activeObj.getSelectionStyles();
+            }
+
+            snippet.forEach(styleObj, (val, key) => {
+                if (selectedObject[key] === val) {
+                    styleObj[key] = resetStyles[key] || '';
+                }
+            }, this);
+
+            if (textAlignChange) {
                 activeObj.set(styleObj);
             } else {
-                snippet.forEach(styleObj, (val, key) => {
-                    const selectedPart = activeObj.getSelectionStyles();
-                    if (selectedPart[key] === val) {
-                        styleObj[key] = resetStyles[key] || '';
-                    }
-                }, this);
-                this.getCanvas().getActiveObject().setSelectionStyles(styleObj);
+                activeObj.setSelectionStyles(styleObj);
             }
 
             this.getCanvas().renderAll();
@@ -576,14 +594,6 @@ class Text extends Component {
                     y: e.clientY || 0
                 }
             });
-        }
-    }
-
-    onFabricClearText() {
-        const obj = this.getSelectedObj();
-        if (obj.text === 'Enter text here') {
-            obj.selectAll();
-            obj.removeChars();
         }
     }
 

@@ -54,8 +54,5 @@ report
 *.vim
 test.html
 
-<<<<<<< HEAD
 # Compiled files
 # dist
-=======
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f

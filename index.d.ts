@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-// Type definitions for TOAST UI Image Editor v3.5.1
+// Type definitions for TOAST UI Image Editor v3.7.0
+// TypeScript Version: 3.2.2
 =======
 // Type definitions for TOAST UI Image Editor v3.7.0
 >>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f

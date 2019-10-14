@@ -1,29 +1,16 @@
 /*!
  * tui-image-editor.js
-<<<<<<< HEAD
- * @version 3.5.1
- * @author NHNEnt FE Development Lab <dl_javascript@nhnent.com>
-=======
  * @version 3.7.0
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
  * @license MIT
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-<<<<<<< HEAD
-		module.exports = factory(require("tui-code-snippet"), require("tui-color-picker"), require("fabric/dist/fabric.require"));
-	else if(typeof define === 'function' && define.amd)
-		define(["tui-code-snippet", "tui-color-picker", "fabric/dist/fabric.require"], factory);
-	else if(typeof exports === 'object')
-		exports["ImageEditor"] = factory(require("tui-code-snippet"), require("tui-color-picker"), require("fabric/dist/fabric.require"));
-=======
 		module.exports = factory(require("tui-code-snippet"), require("tui-color-picker"), require("fabric")["fabric"]);
 	else if(typeof define === 'function' && define.amd)
 		define(["tui-code-snippet", "tui-color-picker", "fabric"], factory);
 	else if(typeof exports === 'object')
 		exports["ImageEditor"] = factory(require("tui-code-snippet"), require("tui-color-picker"), require("fabric")["fabric"]);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	else
 		root["tui"] = root["tui"] || {}, root["tui"]["ImageEditor"] = factory((root["tui"] && root["tui"]["util"]), (root["tui"] && root["tui"]["colorPicker"]), root["fabric"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_82__, __WEBPACK_EXTERNAL_MODULE_106__) {
@@ -601,11 +588,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @fileoverview Image-editor application class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
@@ -618,15 +601,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _promise2 = _interopRequireDefault(_promise);
 
-<<<<<<< HEAD
-	var _invoker2 = __webpack_require__(68);
-
-	var _invoker3 = _interopRequireDefault(_invoker2);
-=======
 	var _invoker3 = __webpack_require__(68);
 
 	var _invoker4 = _interopRequireDefault(_invoker3);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	var _ui = __webpack_require__(74);
 
@@ -735,14 +712,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @type {Ui}
 	         */
 	        if (options.includeUI) {
-<<<<<<< HEAD
-	            this.ui = new _ui2.default(wrapper, options.includeUI, this.getActions());
-=======
 	            var UIOption = options.includeUI;
 	            UIOption.usageStatistics = options.usageStatistics;
 
 	            this.ui = new _ui2.default(wrapper, UIOption, this.getActions());
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            options = this.ui.setUiDefaultSelectionStyle(options);
 	        }
 
@@ -751,11 +724,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @type {Invoker}
 	         * @private
 	         */
-<<<<<<< HEAD
-	        this._invoker = new _invoker3.default();
-=======
 	        this._invoker = new _invoker4.default();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        /**
 	         * Graphics instance
@@ -808,64 +777,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.ui.initCanvas();
 	            this.setReAction();
 	        }
-<<<<<<< HEAD
-=======
 	        fabric.enableGLFiltering = false;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    }
 
 	    /**
 	     * Image filter result
 	     * @typedef {Object} FilterResult
-<<<<<<< HEAD
-	     * @property {string} type - filter type like 'mask', 'Grayscale' and so on
-	     * @property {string} action - action type like 'add', 'remove'
-=======
 	     * @property {string} type - Filter type like 'mask', 'Grayscale' and so on
 	     * @property {string} action - Action type like 'add', 'remove'
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     */
 
 	    /**
 	     * Flip status
 	     * @typedef {Object} FlipStatus
-<<<<<<< HEAD
-	     * @property {boolean} flipX - x axis
-	     * @property {boolean} flipY - y axis
-	     * @property {Number} angle - angle
-=======
 	     * @property {boolean} flipX - X axis
 	     * @property {boolean} flipY - Y axis
 	     * @property {Number} angle - Angle
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     */
 	    /**
 	     * Rotation status
 	     * @typedef {Number} RotateStatus
-<<<<<<< HEAD
-	     * @property {Number} angle - angle
-=======
 	     * @property {Number} angle - Angle
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     */
 
 	    /**
 	     * Old and new Size
 	     * @typedef {Object} SizeChange
-<<<<<<< HEAD
-	     * @property {Number} oldWidth - old width
-	     * @property {Number} oldHeight - old height
-	     * @property {Number} newWidth - new width
-	     * @property {Number} newHeight - new height
-	     */
-
-	    /**
-	     * @typedef {string} ErrorMsg - {string} error message
-	     */
-
-	    /**
-	     * @typedef {Object} ObjectProps - graphics object properties
-=======
 	     * @property {Number} oldWidth - Old width
 	     * @property {Number} oldHeight - Old height
 	     * @property {Number} newWidth - New width
@@ -880,7 +817,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * Graphics object properties
 	     * @typedef {Object} ObjectProps
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @property {number} id - object id
 	     * @property {string} type - object type
 	     * @property {string} text - text content
@@ -925,11 +861,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            if (applyGroupSelectionStyle) {
 	                this.on('selectionCreated', function (eventTarget) {
-<<<<<<< HEAD
-	                    if (eventTarget.type === 'group') {
-=======
 	                    if (eventTarget.type === 'activeSelection') {
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                        eventTarget.set(selectionStyle);
 	                    }
 	                });
@@ -1029,23 +961,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_onKeyDown',
 	        value: function _onKeyDown(e) {
-<<<<<<< HEAD
-	            var activeObject = this._graphics.getActiveObject();
-	            var activeObjectGroup = this._graphics.getActiveGroupObject();
-	            var existRemoveObject = activeObject || activeObjectGroup;
-
-	            if ((e.ctrlKey || e.metaKey) && e.keyCode === keyCodes.Z) {
-	                // There is no error message on shortcut when it's empty
-	                this.undo()['catch'](function () {});
-	            }
-
-	            if ((e.ctrlKey || e.metaKey) && e.keyCode === keyCodes.Y) {
-	                // There is no error message on shortcut when it's empty
-	                this.redo()['catch'](function () {});
-	            }
-
-	            if ((e.keyCode === keyCodes.BACKSPACE || e.keyCode === keyCodes.DEL) && existRemoveObject) {
-=======
 	            var ctrlKey = e.ctrlKey,
 	                keyCode = e.keyCode,
 	                metaKey = e.metaKey;
@@ -1069,7 +984,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var isEditing = activeObject && activeObject.isEditing;
 
 	            if (!isEditing && isDeleteKey && existRemoveObject) {
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                e.preventDefault();
 	                this.removeActiveObject();
 	            }
@@ -1084,20 +998,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'removeActiveObject',
 	        value: function removeActiveObject() {
 	            var activeObject = this._graphics.getActiveObject();
-<<<<<<< HEAD
-	            var activeObjectGroup = this._graphics.getActiveGroupObject();
-
-	            if (activeObjectGroup) {
-	                var objects = activeObjectGroup.getObjects();
-	                this.discardSelection();
-	                this._removeObjectStream(objects);
-=======
 	            var activeObjectGroup = this._graphics.getActiveObjects();
 
 	            if (activeObjectGroup && activeObjectGroup.size()) {
 	                this.discardSelection();
 	                this._removeObjectStream(activeObjectGroup.getObjects());
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            } else if (activeObject) {
 	                var activeObjectId = this._graphics.getObjectId(activeObject);
 	                this.removeObject(activeObjectId);
@@ -1339,8 +1244,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        /**
-<<<<<<< HEAD
-=======
 	         * Invoke command
 	         * @param {String} commandName - Command name
 	         * @param {...*} args - Arguments for creating command
@@ -1364,7 +1267,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        /**
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * Undo
 	         * @returns {Promise}
 	         * @example
@@ -1612,20 +1514,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * @param {string} type - 'rotate' or 'setAngle'
 	         * @param {number} angle - angle value (degree)
-<<<<<<< HEAD
-=======
 	         * @param {boolean} isSilent - is silent execution or not
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * @returns {Promise<RotateStatus, ErrorMsg>}
 	         * @private
 	         */
 
 	    }, {
 	        key: '_rotate',
-<<<<<<< HEAD
-	        value: function _rotate(type, angle) {
-	            return this.execute(commands.ROTATE_IMAGE, type, angle);
-=======
 	        value: function _rotate(type, angle, isSilent) {
 	            var result = null;
 	            if (isSilent) {
@@ -1635,27 +1530,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            return result;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
 	         * Rotate image
 	         * @returns {Promise}
 	         * @param {number} angle - Additional angle to rotate image
-<<<<<<< HEAD
-	         * @returns {Promise<RotateStatus, ErrorMsg>}
-	         * @example
-	         * imageEditor.setAngle(10); // angle = 10
-	         * imageEditor.rotate(10); // angle = 20
-	         * imageEidtor.setAngle(5); // angle = 5
-=======
 	         * @param {boolean} isSilent - is silent execution or not
 	         * @returns {Promise<RotateStatus, ErrorMsg>}
 	         * @example
 	         * imageEditor.rotate(10); // angle = 10
 	         * imageEditor.rotate(10); // angle = 20
 	         * imageEidtor.rotate(5); // angle = 5
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * imageEidtor.rotate(-95); // angle = -90
 	         * imageEditor.rotate(10).then(status => {
 	         *     console.log('angle: ', status.angle);
@@ -1666,22 +1552,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    }, {
 	        key: 'rotate',
-<<<<<<< HEAD
-	        value: function rotate(angle) {
-	            return this._rotate('rotate', angle);
-=======
 	        value: function rotate(angle, isSilent) {
 	            return this._rotate('rotate', angle, isSilent);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
 	         * Set angle
 	         * @param {number} angle - Angle of image
-<<<<<<< HEAD
-=======
 	         * @param {boolean} isSilent - is silent execution or not
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * @returns {Promise<RotateStatus, ErrorMsg>}
 	         * @example
 	         * imageEditor.setAngle(10); // angle = 10
@@ -1698,13 +1576,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    }, {
 	        key: 'setAngle',
-<<<<<<< HEAD
-	        value: function setAngle(angle) {
-	            return this._rotate('setAngle', angle);
-=======
 	        value: function setAngle(angle, isSilent) {
 	            return this._rotate('setAngle', angle, isSilent);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -4011,11 +3884,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @fileoverview Invoker - invoke commands
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
@@ -4076,11 +3945,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @private
 	         */
 	        this._isLocked = false;
-<<<<<<< HEAD
-=======
 
 	        this._isSilent = false;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    }
 
 	    /**
@@ -4105,13 +3971,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            return command.execute.apply(command, args).then(function (value) {
-<<<<<<< HEAD
-	                _this.pushUndoStack(command);
-=======
 	                if (!_this._isSilent) {
 	                    _this.pushUndoStack(command);
 	                }
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                _this.unlock();
 	                if (isFunction(command.executeCallback)) {
 	                    command.executeCallback(value);
@@ -4201,8 +4063,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: function unlock() {
 	            this._isLocked = false;
 	        }
-<<<<<<< HEAD
-=======
 	    }, {
 	        key: 'executeSilent',
 	        value: function executeSilent() {
@@ -4218,7 +4078,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this3._isSilent = false;
 	            });
 	        }
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        /**
 	         * Invoke command
@@ -4232,23 +4091,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'execute',
 	        value: function execute() {
-<<<<<<< HEAD
-	            var _this3 = this;
-=======
 	            var _this4 = this;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	            if (this._isLocked) {
 	                return _promise2.default.reject(rejectMessages.isLock);
 	            }
 
-<<<<<<< HEAD
-	            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	                args[_key] = arguments[_key];
-=======
 	            for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
 	                args[_key2] = arguments[_key2];
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 
 	            var command = args[0];
@@ -4258,11 +4108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            return this._invokeExecution(command).then(function (value) {
-<<<<<<< HEAD
-	                _this3.clearRedoStack();
-=======
 	                _this4.clearRedoStack();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	                return value;
 	            });
@@ -4439,11 +4285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @ignore
 	 */
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Command factory
 	 */
 	function create(name) {
@@ -4483,11 +4325,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @fileoverview Command interface
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
@@ -4633,11 +4471,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Error-message factory
 	 */
 	var types = (0, _util.keyMirror)('UN_IMPLEMENTATION', 'NO_COMPONENT_NAME');
@@ -4679,11 +4513,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var min = Math.min,
 	    max = Math.max; /**
-<<<<<<< HEAD
-	                     * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                     * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                     * @fileoverview Util
 	                     */
 
@@ -5070,27 +4900,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            max: 1,
 	            value: 0.7
 	        },
-<<<<<<< HEAD
-	        removewhiteThresholdRange: {
-	            min: 0,
-	            max: 255,
-	            value: 60
-	        },
-	        removewhiteDistanceRange: {
-	            min: 0,
-	            max: 255,
-	            value: 10
-	        },
-	        gradientTransparencyRange: {
-	            min: 0,
-	            max: 255,
-	            value: 100
-	        },
-	        brightnessRange: {
-	            min: -255,
-	            max: 255,
-	            value: 100
-=======
 	        removewhiteDistanceRange: {
 	            min: 0,
 	            max: 1,
@@ -5100,7 +4909,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            min: -1,
 	            max: 1,
 	            value: 0
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        },
 	        noiseRange: {
 	            min: 0,
@@ -5114,21 +4922,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 	        colorfilterThresholeRange: {
 	            min: 0,
-<<<<<<< HEAD
-	            max: 255,
-	            value: 45
-	        }
-	    }
-	}; /**
-	    * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	            max: 1,
 	            value: 0.2
 	        }
 	    }
 	}; /**
 	    * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    * @fileoverview Constants
 	    */
 
@@ -5223,20 +5022,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var BI_EXPRESSION_MINSIZE_WHEN_TOP_POSITION = '1300';
 
 	/**
-<<<<<<< HEAD
-	 * Ui class
-	 * @class
-	 * @param {string|HTMLElement} element - Wrapper's element or selector
-	 * @param {Object} [options] - Ui setting options
-	 *   @param {number} option.loadImage - Init default load image
-	 *   @param {number} option.initMenu - Init start menu
-	 *   @param {Boolean} [option.menuBarPosition=bottom] - Let
-	 *   @param {Boolean} [option.applyCropSelectionStyle=false] - Let
-	 *   @param {Object} [options.uiSize] - ui size of editor
-	 *     @param {string} options.uiSize.width - width of ui
-	 *     @param {string} options.uiSize.height - height of ui
-	 * @param {Objecdt} actions - ui action instance
-=======
 	 * Default UI Class
 	 * @class
 	 * @param {string|HTMLElement} element - Wrapper's element or selector
@@ -5250,7 +5035,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     @param {string} options.uiSize.width - width of ui
 	 *     @param {string} options.uiSize.height - height of ui
 	 * @param {Object} actions - ui action instance
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 */
 
 	var Ui = function () {
@@ -5318,17 +5102,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Change editor size
 	         * @param {Object} resizeInfo - ui & image size info
-<<<<<<< HEAD
-	         *   @param {Object} resizeInfo.uiSize - image size dimension
-	         *     @param {Number} resizeInfo.uiSize.width - ui width
-	         *     @param {Number} resizeInfo.uiSize.height - ui height
-	         *   @param {Object} resizeInfo.imageSize - image size dimension
-=======
 	         *   @param {Object} [resizeInfo.uiSize] - image size dimension
 	         *     @param {string} resizeInfo.uiSize.width - ui width
 	         *     @param {string} resizeInfo.uiSize.height - ui height
 	         *   @param {Object} [resizeInfo.imageSize] - image size dimension
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         *     @param {Number} resizeInfo.imageSize.oldWidth - old width
 	         *     @param {Number} resizeInfo.imageSize.oldHeight - old height
 	         *     @param {Number} resizeInfo.imageSize.newWidth - new width
@@ -5340,11 +5117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         *     uiSize: {width: 1000, height: 1000}
 	         * });
 	         * @example
-<<<<<<< HEAD
-	         * // Apply the ui state while preserving the previous attribute (for example, if responsive Ui)
-=======
 	         * // Apply the ui state while preserving the previous attribute (for example, if responsive UI)
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * imageEditor.ui.resizeEditor();
 	         */
 
@@ -5473,18 +5246,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Change delete button status
 	         * @param {Object} [options] - Ui setting options
-<<<<<<< HEAD
-	         *   @param {object} [option.loadImage] - Init default load image
-	         *   @param {string} [option.initMenu] - Init start menu
-	         *   @param {string} [option.menuBarPosition=bottom] - Let
-	         *   @param {boolean} [option.applyCropSelectionStyle=false] - Let
-=======
 	         *   @param {object} [options.loadImage] - Init default load image
 	         *   @param {string} [options.initMenu] - Init start menu
 	         *   @param {string} [options.menuBarPosition=bottom] - Let
 	         *   @param {boolean} [options.applyCropSelectionStyle=false] - Let
 	         *   @param {boolean} [options.usageStatistics=false] - Send statistics ping or not
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * @returns {Object} initialize option
 	         * @private
 	         */
@@ -5512,13 +5278,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Set ui container size
 	         * @param {Object} uiSize - ui dimension
-<<<<<<< HEAD
-	         *   @param {number} width - width
-	         *   @param {number} height - height
-=======
 	         *   @param {string} uiSize.width - css width property
 	         *   @param {string} uiSize.height - css height property 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * @private
 	         */
 
@@ -5557,12 +5318,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this[menuName] = new SubComponentClass(_this._subMenuElement, {
 	                    locale: _this._locale,
 	                    iconStyle: _this.theme.getStyle('submenu.icon'),
-<<<<<<< HEAD
-	                    menuBarPosition: _this.options.menuBarPosition
-=======
 	                    menuBarPosition: _this.options.menuBarPosition,
 	                    usageStatistics: _this.options.usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                });
 	            });
 	        }
@@ -5634,15 +5391,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            btnElement.id = 'tie-btn-' + menuName;
 	            btnElement.className = 'tui-image-editor-item normal';
-<<<<<<< HEAD
-	            btnElement.title = this._locale.localize(menuName.replace(/^[a-z]/g, function ($0) {
-	                return $0.toUpperCase();
-	            }));
-=======
 	            btnElement.setAttribute('tooltip-content', this._locale.localize(menuName.replace(/^[a-z]/g, function ($0) {
 	                return $0.toUpperCase();
 	            })));
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            btnElement.innerHTML = menuItemHtml;
 
 	            this._menuElement.appendChild(btnElement);
@@ -5910,10 +5661,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_setEditorPosition',
 	        value: function _setEditorPosition(menuBarPosition) {
-<<<<<<< HEAD
-=======
 	            // eslint-disable-line complexity
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            var _getEditorDimension3 = this._getEditorDimension(),
 	                width = _getEditorDimension3.width,
 	                height = _getEditorDimension3.height;
@@ -5999,11 +5747,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        disabled = _ref$iconStyle.disabled,
 	        loadButtonStyle = _ref.loadButtonStyle,
 	        downloadButtonStyle = _ref.downloadButtonStyle;
-<<<<<<< HEAD
-	    return '\n    <div class="tui-image-editor-controls">\n        <div class="tui-image-editor-controls-logo">\n            <img src="' + biImage + '" />\n        </div>\n        <ul class="tui-image-editor-menu">\n            <li id="tie-btn-undo" class="tui-image-editor-item" title="' + locale.localize('Undo') + '">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-undo" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-undo" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-undo" class="hover"/>\n                </svg>\n            </li>\n            <li id="tie-btn-redo" class="tui-image-editor-item" title="' + locale.localize('Redo') + '">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-redo" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-redo" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-redo" class="hover"/>\n                </svg>\n            </li>\n            <li id="tie-btn-reset" class="tui-image-editor-item" title="' + locale.localize('Reset') + '">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-reset" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-reset" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-reset" class="hover"/>\n                </svg>\n            </li>\n            <li class="tui-image-editor-item">\n                <div class="tui-image-editor-icpartition"></div>\n            </li>\n            <li id="tie-btn-delete" class="tui-image-editor-item" title="' + locale.localize('Delete') + '">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-delete" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-delete" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-delete" class="hover"/>\n                </svg>\n            </li>\n            <li id="tie-btn-delete-all" class="tui-image-editor-item" title="' + locale.localize('Delete-all') + '">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-delete-all" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-delete-all" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-delete-all" class="hover"/>\n                </svg>\n            </li>\n            <li class="tui-image-editor-item">\n                <div class="tui-image-editor-icpartition"></div>\n            </li>\n        </ul>\n\n        <div class="tui-image-editor-controls-buttons">\n            <div style="' + loadButtonStyle + '">\n                ' + locale.localize('Load') + '\n                <input type="file" class="tui-image-editor-load-btn" />\n            </div>\n            <button class="tui-image-editor-download-btn" style="' + downloadButtonStyle + '">\n                ' + locale.localize('Download') + '\n            </button>\n        </div>\n    </div>\n';
-=======
 	    return '\n    <div class="tui-image-editor-controls">\n        <div class="tui-image-editor-controls-logo">\n            <img src="' + biImage + '" />\n        </div>\n        <ul class="tui-image-editor-menu">\n            <li id="tie-btn-undo" class="tui-image-editor-item">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-undo" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-undo" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-undo" class="hover"/>\n                </svg>\n            </li>\n            <li id="tie-btn-redo" class="tui-image-editor-item">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-redo" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-redo" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-redo" class="hover"/>\n                </svg>\n            </li>\n            <li id="tie-btn-reset" class="tui-image-editor-item">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-reset" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-reset" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-reset" class="hover"/>\n                </svg>\n            </li>\n            <li class="tui-image-editor-item">\n                <div class="tui-image-editor-icpartition"></div>\n            </li>\n            <li id="tie-btn-delete" class="tui-image-editor-item">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-delete" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-delete" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-delete" class="hover"/>\n                </svg>\n            </li>\n            <li id="tie-btn-delete-all" class="tui-image-editor-item">\n                <svg class="svg_ic-menu">\n                    <use xlink:href="' + normal.path + '#' + normal.name + '-ic-delete-all" class="enabled"/>\n                    <use xlink:href="' + disabled.path + '#' + disabled.name + '-ic-delete-all" class="normal"/>\n                    <use xlink:href="' + hover.path + '#' + hover.name + '-ic-delete-all" class="hover"/>\n                </svg>\n            </li>\n            <li class="tui-image-editor-item">\n                <div class="tui-image-editor-icpartition"></div>\n            </li>\n        </ul>\n\n        <div class="tui-image-editor-controls-buttons">\n            <div style="' + loadButtonStyle + '">\n                ' + locale.localize('Load') + '\n                <input type="file" class="tui-image-editor-load-btn" />\n            </div>\n            <button class="tui-image-editor-download-btn" style="' + downloadButtonStyle + '">\n                ' + locale.localize('Download') + '\n            </button>\n        </div>\n    </div>\n';
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	};
 
 /***/ }),
@@ -6256,11 +6000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	/**
 	 * @fileoverview The standard theme
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 */
 
 	/**
@@ -6534,12 +6274,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Shape(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Shape);
 
@@ -6548,12 +6284,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'shape',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _shape2.default
-=======
 	            templateHtml: _shape2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this.type = null;
@@ -6564,13 +6296,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            shapeColorButton: _this.selector('#tie-shape-color-button'),
 	            strokeRange: new _range2.default(_this.selector('#tie-stroke-range'), _consts.defaultShapeStrokeValus),
 	            strokeRangeValue: _this.selector('#tie-stroke-range-value'),
-<<<<<<< HEAD
-	            fillColorpicker: new _colorpicker2.default(_this.selector('#tie-color-fill'), '', _this.toggleDirection),
-	            strokeColorpicker: new _colorpicker2.default(_this.selector('#tie-color-stroke'), '#ffbb3b', _this.toggleDirection)
-=======
 	            fillColorpicker: new _colorpicker2.default(_this.selector('#tie-color-fill'), '', _this.toggleDirection, _this.usageStatistics),
 	            strokeColorpicker: new _colorpicker2.default(_this.selector('#tie-color-stroke'), '#ffbb3b', _this.toggleDirection, _this.usageStatistics)
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        };
 
 	        _this.colorPickerControls.push(_this._els.fillColorpicker);
@@ -6809,18 +6536,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Colorpicker(colorpickerElement) {
 	        var defaultColor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '#7e7e7e';
 	        var toggleDirection = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'up';
-<<<<<<< HEAD
-=======
 	        var usageStatistics = arguments[3];
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Colorpicker);
 
 	        var title = colorpickerElement.getAttribute('title');
-<<<<<<< HEAD
-=======
 	        this.usageStatistics = usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        this._show = false;
 
@@ -6832,12 +6553,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.picker = _tuiColorPicker2.default.create({
 	            container: this.pickerElement,
 	            preset: PICKER_COLOR,
-<<<<<<< HEAD
-	            color: defaultColor
-=======
 	            color: defaultColor,
 	            usageStatistics: this.usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        });
 
 	        this._addEvent(colorpickerElement);
@@ -7161,11 +6878,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this.subbar.style.right = (1 - ratio) * _this.rangeWidth + 'px';
 	                _this._value = value;
 
-<<<<<<< HEAD
-	                _this.fire('change', value);
-=======
 	                _this.fire('change', value, true);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            });
 	        }
 
@@ -7215,11 +6928,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this._value = value;
 
 	            if (this.realTimeEvent) {
-<<<<<<< HEAD
-	                this.fire('change', value);
-=======
 	                this.fire('change', value, false);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 	        }
 
@@ -7231,11 +6940,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_stopChangingAngle',
 	        value: function _stopChangingAngle() {
-<<<<<<< HEAD
-	            this.fire('change', this._value);
-=======
 	            this.fire('change', this._value, true);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            document.removeEventListener('mousemove', this.dragEventHandler.changeAngle);
 	            document.removeEventListener('mouseup', this.dragEventHandler.stopChangingAngle);
 	        }
@@ -7314,22 +7019,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param {Object} iconStyle - style of icon
 	     * @param {string} menuBarPosition - position of menu
 	     * @param {*} templateHtml - template for SubMenuElement
-<<<<<<< HEAD
-=======
 	     * @param {boolean} [usageStatistics=false] - template for SubMenuElement
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     */
 	    function Submenu(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            name = _ref.name,
 	            iconStyle = _ref.iconStyle,
 	            menuBarPosition = _ref.menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml = _ref.templateHtml;
-=======
 	            templateHtml = _ref.templateHtml,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Submenu);
 
@@ -7339,10 +7037,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.menuBarPosition = menuBarPosition;
 	        this.toggleDirection = menuBarPosition === 'top' ? 'down' : 'up';
 	        this.colorPickerControls = [];
-<<<<<<< HEAD
-=======
 	        this.usageStatistics = usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        this._makeSubMenuElement(subMenuElement, {
 	            locale: locale,
 	            name: name,
@@ -7507,12 +7202,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Crop(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Crop);
 
@@ -7521,12 +7212,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'crop',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _crop2.default
-=======
 	            templateHtml: _crop2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this.status = 'active';
@@ -7707,12 +7394,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Flip(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Flip);
 
@@ -7721,12 +7404,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'flip',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _flip2.default
-=======
 	            templateHtml: _flip2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this.flipStatus = false;
@@ -7867,12 +7546,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Rotate(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Rotate);
 
@@ -7881,18 +7556,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'rotate',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _rotate2.default
-	        }));
-
-=======
 	            templateHtml: _rotate2.default,
 	            usageStatistics: usageStatistics
 	        }));
 
 	        _this._value = 0;
 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        _this._els = {
 	            rotateButton: _this.selector('#tie-retate-button'),
 	            rotateRange: new _range2.default(_this.selector('#tie-rotate-range'), _consts.defaultRotateRangeValus),
@@ -7901,17 +7570,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _this;
 	    }
 
-<<<<<<< HEAD
-	    /**
-	     * Add event for rotate
-	     * @param {Object} actions - actions for crop
-	     *   @param {Function} actions.rotate - rotate action
-	     *   @param {Function} actions.setAngle - set angle action
-	     */
-
-
-	    _createClass(Rotate, [{
-=======
 	    _createClass(Rotate, [{
 	        key: 'setRangeBarAngle',
 	        value: function setRangeBarAngle(type, angle) {
@@ -7938,7 +7596,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 
 	    }, {
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        key: 'addEvent',
 	        value: function addEvent(actions) {
 	            // {rotate, setAngle}
@@ -7951,27 +7608,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Change rotate for range
 	         * @param {number} value - angle value
-<<<<<<< HEAD
-=======
 	         * @param {boolean} isLast - Is last change
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * @private
 	         */
 
 	    }, {
 	        key: '_changeRotateForRange',
-<<<<<<< HEAD
-	        value: function _changeRotateForRange(value) {
-	            var angle = (0, _util.toInteger)(value);
-	            this._els.rotateRangeValue.value = angle;
-	            this.actions.setAngle(angle);
-=======
 	        value: function _changeRotateForRange(value, isLast) {
 	            var angle = (0, _util.toInteger)(value);
 	            this._els.rotateRangeValue.value = angle;
 	            this.actions.setAngle(angle, !isLast);
 	            this._value = angle;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -7984,26 +7631,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_changeRotateForButton',
 	        value: function _changeRotateForButton(event) {
 	            var button = event.target.closest('.tui-image-editor-button');
-<<<<<<< HEAD
-=======
 	            var angle = this._els.rotateRangeValue.value;
 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            if (button) {
 	                var rotateType = this.getButtonType(button, ['counterclockwise', 'clockwise']);
 	                var rotateAngle = {
 	                    clockwise: CLOCKWISE,
 	                    counterclockwise: COUNTERCLOCKWISE
 	                }[rotateType];
-<<<<<<< HEAD
-	                this.actions.rotate(rotateAngle);
-=======
 	                var newAngle = parseInt(angle, 10) + rotateAngle;
 	                var isRotatable = newAngle >= -360 && newAngle <= 360;
 	                if (isRotatable) {
 	                    this.actions.rotate(rotateAngle);
 	                }
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 	        }
 	    }]);
@@ -8088,12 +7728,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Text(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Text);
 
@@ -8102,12 +7738,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'text',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _text2.default
-=======
 	            templateHtml: _text2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this.effect = {
@@ -8119,11 +7751,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this._els = {
 	            textEffectButton: _this.selector('#tie-text-effect-button'),
 	            textAlignButton: _this.selector('#tie-text-align-button'),
-<<<<<<< HEAD
-	            textColorpicker: new _colorpicker2.default(_this.selector('#tie-text-color'), '#ffbb3b', _this.toggleDirection),
-=======
 	            textColorpicker: new _colorpicker2.default(_this.selector('#tie-text-color'), '#ffbb3b', _this.toggleDirection, _this.usageStatistics),
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            textRange: new _range2.default(_this.selector('#tie-text-range'), _consts.defaultTextRangeValus),
 	            textRangeValue: _this.selector('#tie-text-range-value')
 	        };
@@ -8355,12 +7983,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Mask(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Mask);
 
@@ -8369,12 +7993,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'mask',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _mask2.default
-=======
 	            templateHtml: _mask2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this._els = {
@@ -8519,12 +8139,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Icon(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Icon);
 
@@ -8533,12 +8149,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'icon',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _icon2.default
-=======
 	            templateHtml: _icon2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this.iconType = null;
@@ -8547,11 +8159,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this._els = {
 	            registIconButton: _this.selector('#tie-icon-image-file'),
 	            addIconButton: _this.selector('#tie-icon-add-button'),
-<<<<<<< HEAD
-	            iconColorpicker: new _colorpicker2.default(_this.selector('#tie-icon-color'), '#ffbb3b', _this.toggleDirection)
-=======
 	            iconColorpicker: new _colorpicker2.default(_this.selector('#tie-icon-color'), '#ffbb3b', _this.toggleDirection, _this.usageStatistics)
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        };
 	        return _this;
 	    }
@@ -8774,12 +8382,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Draw(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Draw);
 
@@ -8788,21 +8392,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'draw',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _draw2.default
-=======
 	            templateHtml: _draw2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this._els = {
 	            lineSelectButton: _this.selector('#tie-draw-line-select-button'),
-<<<<<<< HEAD
-	            drawColorpicker: new _colorpicker2.default(_this.selector('#tie-draw-color'), '#00a9ff', _this.toggleDirection),
-=======
 	            drawColorpicker: new _colorpicker2.default(_this.selector('#tie-draw-color'), '#00a9ff', _this.toggleDirection, _this.usageStatistics),
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            drawRange: new _range2.default(_this.selector('#tie-draw-range'), _consts.defaultDrawRangeValus),
 	            drawRangeValue: _this.selector('#tie-draw-range-value')
 	        };
@@ -9010,9 +8606,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var PICKER_CONTROL_HEIGHT = '130px';
 	var BLEND_OPTIONS = ['add', 'diff', 'subtract', 'multiply', 'screen', 'lighten', 'darken'];
-<<<<<<< HEAD
-	var FILTER_OPTIONS = ['grayscale', 'invert', 'sepia', 'sepia2', 'blur', 'sharpen', 'emboss', 'remove-white', 'gradient-transparency', 'brightness', 'noise', 'pixelate', 'color-filter', 'tint', 'multiply', 'blend'];
-=======
 	var FILTER_OPTIONS = ['grayscale', 'invert', 'sepia', 'sepia2', 'blur', 'sharpen', 'emboss', 'remove-white', 'brightness', 'noise', 'pixelate', 'color-filter', 'tint', 'multiply', 'blend'];
 	var filterNameMap = {
 	    grayscale: 'grayscale',
@@ -9037,7 +8630,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    hue: 'hue',
 	    gamma: 'gamma'
 	};
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	/**
 	 * Filter ui class
@@ -9051,12 +8643,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Filter(subMenuElement, _ref) {
 	        var locale = _ref.locale,
 	            iconStyle = _ref.iconStyle,
-<<<<<<< HEAD
-	            menuBarPosition = _ref.menuBarPosition;
-=======
 	            menuBarPosition = _ref.menuBarPosition,
 	            usageStatistics = _ref.usageStatistics;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        _classCallCheck(this, Filter);
 
@@ -9065,12 +8653,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: 'filter',
 	            iconStyle: iconStyle,
 	            menuBarPosition: menuBarPosition,
-<<<<<<< HEAD
-	            templateHtml: _filter2.default
-=======
 	            templateHtml: _filter2.default,
 	            usageStatistics: usageStatistics
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }));
 
 	        _this.selectBoxShow = false;
@@ -9096,15 +8680,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            var changeRangeValue = this._changeRangeValue.bind(this, applyFilter);
 
-<<<<<<< HEAD
-	            _tuiCodeSnippet2.default.forEach(FILTER_OPTIONS, function (filterName) {
-	                var filterCheckElement = _this2.selector('#tie-' + filterName);
-	                var filterNameCamelCase = (0, _util.toCamelCase)(filterName);
-=======
 	            _tuiCodeSnippet2.default.forEach(FILTER_OPTIONS, function (filter) {
 	                var filterCheckElement = _this2.selector('#tie-' + filter);
 	                var filterNameCamelCase = (0, _util.toCamelCase)(filter);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                _this2.checkedMap[filterNameCamelCase] = filterCheckElement;
 
 	                filterCheckElement.addEventListener('change', function () {
@@ -9112,21 +8690,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            });
 
-<<<<<<< HEAD
-	            this._els.removewhiteThresholdRange.on('change', function () {
-	                return changeRangeValue('removeWhite');
-	            });
 	            this._els.removewhiteDistanceRange.on('change', function () {
 	                return changeRangeValue('removeWhite');
 	            });
-	            this._els.gradientTransparencyRange.on('change', function () {
-	                return changeRangeValue('gradientTransparency');
-	            });
-=======
-	            this._els.removewhiteDistanceRange.on('change', function () {
-	                return changeRangeValue('removeWhite');
-	            });
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            this._els.colorfilterThresholeRange.on('change', function () {
 	                return changeRangeValue('colorFilter');
 	            });
@@ -9165,28 +8731,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Add event for filter
 	         * @param {Function} applyFilter - actions for firter
-<<<<<<< HEAD
-	         * @param {string} filterName - filter name
-=======
 	         * @param {string} filter - filter name
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         */
 
 	    }, {
 	        key: '_changeRangeValue',
-<<<<<<< HEAD
-	        value: function _changeRangeValue(applyFilter, filterName) {
-	            var apply = this.checkedMap[filterName].checked;
-	            var type = filterName;
-
-	            var checkboxGroup = this.checkedMap[filterName].closest('.tui-image-editor-checkbox-group');
-=======
 	        value: function _changeRangeValue(applyFilter, filter) {
 	            var apply = this.checkedMap[filter].checked;
 	            var type = filterNameMap[filter];
 
 	            var checkboxGroup = this.checkedMap[filter].closest('.tui-image-editor-checkbox-group');
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            if (checkboxGroup) {
 	                if (apply) {
 	                    checkboxGroup.classList.remove('tui-image-editor-disabled');
@@ -9194,11 +8748,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    checkboxGroup.classList.add('tui-image-editor-disabled');
 	                }
 	            }
-<<<<<<< HEAD
-	            applyFilter(apply, type, this._getFilterOption(type));
-=======
 	            applyFilter(apply, type, this._getFilterOption(filter));
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -9215,17 +8765,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var option = {};
 	            switch (type) {
 	                case 'removeWhite':
-<<<<<<< HEAD
-	                    option.threshold = (0, _util.toInteger)(this._els.removewhiteThresholdRange.value);
-	                    option.distance = (0, _util.toInteger)(this._els.removewhiteDistanceRange.value);
-	                    break;
-	                case 'gradientTransparency':
-	                    option.threshold = (0, _util.toInteger)(this._els.gradientTransparencyRange.value);
-	                    break;
-	                case 'colorFilter':
-	                    option.color = '#FFFFFF';
-	                    option.threshold = this._els.colorfilterThresholeRange.value;
-=======
 	                    option.color = '#FFFFFF';
 	                    option.useAlpha = false;
 	                    option.distance = parseFloat(this._els.removewhiteDistanceRange.value);
@@ -9233,7 +8772,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                case 'colorFilter':
 	                    option.color = '#FFFFFF';
 	                    option.distance = parseFloat(this._els.colorfilterThresholeRange.value);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                    break;
 	                case 'pixelate':
 	                    option.blocksize = (0, _util.toInteger)(this._els.pixelateRange.value);
@@ -9242,27 +8780,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    option.noise = (0, _util.toInteger)(this._els.noiseRange.value);
 	                    break;
 	                case 'brightness':
-<<<<<<< HEAD
-	                    option.brightness = (0, _util.toInteger)(this._els.brightnessRange.value);
-	                    break;
-	                case 'blend':
-=======
 	                    option.brightness = parseFloat(this._els.brightnessRange.value);
 	                    break;
 	                case 'blend':
 	                    option.mode = 'add';
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                    option.color = this._els.filterBlendColor.color;
 	                    option.mode = this._els.blendType.value;
 	                    break;
 	                case 'multiply':
-<<<<<<< HEAD
-	                    option.color = this._els.filterMultiplyColor.color;
-	                    break;
-	                case 'tint':
-	                    option.color = this._els.filterTintColor.color;
-	                    option.opacity = this._els.tintOpacity.value;
-=======
 	                    option.mode = 'multiply';
 	                    option.color = this._els.filterMultiplyColor.color;
 	                    break;
@@ -9270,7 +8795,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    option.mode = 'tint';
 	                    option.color = this._els.filterTintColor.color;
 	                    option.alpha = this._els.tintOpacity.value;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                    break;
 	                default:
 	                    break;
@@ -9290,26 +8814,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var selector = this.selector;
 
 	            this._els = {
-<<<<<<< HEAD
-	                removewhiteThresholdRange: new _range2.default(selector('#tie-removewhite-threshold-range'), _consts.defaultFilterRangeValus.removewhiteThresholdRange),
 	                removewhiteDistanceRange: new _range2.default(selector('#tie-removewhite-distance-range'), _consts.defaultFilterRangeValus.removewhiteDistanceRange),
-	                gradientTransparencyRange: new _range2.default(selector('#tie-gradient-transparency-range'), _consts.defaultFilterRangeValus.gradientTransparencyRange),
-=======
-	                removewhiteDistanceRange: new _range2.default(selector('#tie-removewhite-distance-range'), _consts.defaultFilterRangeValus.removewhiteDistanceRange),
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                brightnessRange: new _range2.default(selector('#tie-brightness-range'), _consts.defaultFilterRangeValus.brightnessRange),
 	                noiseRange: new _range2.default(selector('#tie-noise-range'), _consts.defaultFilterRangeValus.noiseRange),
 	                pixelateRange: new _range2.default(selector('#tie-pixelate-range'), _consts.defaultFilterRangeValus.pixelateRange),
 	                colorfilterThresholeRange: new _range2.default(selector('#tie-colorfilter-threshole-range'), _consts.defaultFilterRangeValus.colorfilterThresholeRange),
-<<<<<<< HEAD
-	                filterTintColor: new _colorpicker2.default(selector('#tie-filter-tint-color'), '#03bd9e', this.toggleDirection),
-	                filterMultiplyColor: new _colorpicker2.default(selector('#tie-filter-multiply-color'), '#515ce6', this.toggleDirection),
-	                filterBlendColor: new _colorpicker2.default(selector('#tie-filter-blend-color'), '#ffbb3b', this.toggleDirection)
-=======
 	                filterTintColor: new _colorpicker2.default(selector('#tie-filter-tint-color'), '#03bd9e', this.toggleDirection, this.usageStatistics),
 	                filterMultiplyColor: new _colorpicker2.default(selector('#tie-filter-multiply-color'), '#515ce6', this.toggleDirection, this.usageStatistics),
 	                filterBlendColor: new _colorpicker2.default(selector('#tie-filter-blend-color'), '#ffbb3b', this.toggleDirection, this.usageStatistics)
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            };
 
 	            this._els.tintOpacity = this._pickerWithRange(this._els.filterTintColor.pickerControl);
@@ -9469,11 +8981,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	exports.default = function (_ref) {
 	    var locale = _ref.locale;
-<<<<<<< HEAD
-	    return '\n    <ul class="tui-image-editor-submenu-item">\n        <li class="tui-image-editor-submenu-align">\n            <div class="tui-image-editor-checkbox-wrap fixed-width">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-grayscale">\n                    <label for="tie-grayscale">' + locale.localize('Grayscale') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-invert">\n                    <label for="tie-invert">' + locale.localize('Invert') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-sepia">\n                    <label for="tie-sepia">' + locale.localize('Sepia') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-sepia2">\n                    <label for="tie-sepia2">' + locale.localize('Sepia2') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-blur">\n                    <label for="tie-blur">' + locale.localize('Blur') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-sharpen">\n                    <label for="tie-sharpen">' + locale.localize('Sharpen') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-emboss">\n                    <label for="tie-emboss">' + locale.localize('Emboss') + '</label>\n                </div>\n            </div>\n        </li>\n        <li class="tui-image-editor-partition">\n            <div></div>\n        </li>\n        <li class="tui-image-editor-submenu-align">\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled" style="margin-bottom: 7px;">\n                <div class="tui-image-editor-checkbox-wrap">\n                    <div class="tui-image-editor-checkbox">\n                        <input type="checkbox" id="tie-remove-white">\n                        <label for="tie-remove-white">' + locale.localize('Remove White') + '</label>\n                    </div>\n                </div>\n                <div class="tui-image-editor-newline tui-image-editor-range-wrap short">\n                    <label>' + locale.localize('Threshold') + '</label>\n                    <div id="tie-removewhite-threshold-range"></div>\n                </div>\n                <div class="tui-image-editor-newline tui-image-editor-range-wrap short">\n                    <label>' + locale.localize('Distance') + '</label>\n                    <div id="tie-removewhite-distance-range"></div>\n                </div>\n            </div>\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-newline tui-image-editor-checkbox-wrap">\n                    <div class="tui-image-editor-checkbox">\n                        <input type="checkbox" id="tie-gradient-transparency">\n                        <label for="tie-gradient-transparency">' + locale.localize('Gradient transparency') + '</label>\n                    </div>\n                </div>\n                <div class="tui-image-editor-newline tui-image-editor-range-wrap short">\n                    <label>' + locale.localize('Value') + '</label>\n                    <div id="tie-gradient-transparency-range"></div>\n                </div>\n            </div>\n        </li>\n        <li class="tui-image-editor-partition only-left-right">\n            <div></div>\n        </li>\n        <li class="tui-image-editor-submenu-align">\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-brightness">\n                    <label for="tie-brightness">' + locale.localize('Brightness') + '</label>\n                </div>\n                <div class="tui-image-editor-range-wrap short">\n                    <div id="tie-brightness-range"></div>\n                </div>\n            </div>\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-noise">\n                    <label for="tie-noise">' + locale.localize('Noise') + '</label>\n                </div>\n                <div class="tui-image-editor-range-wrap short">\n                    <div id="tie-noise-range"></div>\n                </div>\n            </div>\n\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-pixelate">\n                    <label for="tie-pixelate">' + locale.localize('Pixelate') + '</label>\n                </div>\n                <div class="tui-image-editor-range-wrap short">\n                    <div id="tie-pixelate-range"></div>\n                </div>\n            </div>\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-newline tui-image-editor-checkbox-wrap">\n                    <div class="tui-image-editor-checkbox">\n                        <input type="checkbox" id="tie-color-filter">\n                        <label for="tie-color-filter">' + locale.localize('Color Filter') + '</label>\n                    </div>\n                </div>\n                <div class="tui-image-editor-newline tui-image-editor-range-wrap short">\n                    <label>' + locale.localize('Threshold') + '</label>\n                    <div id="tie-colorfilter-threshole-range"></div>\n                </div>\n            </div>\n        </li>\n        <li class="tui-image-editor-partition">\n            <div></div>\n        </li>\n        <li>\n            <div class="filter-color-item">\n                <div id="tie-filter-tint-color" title="' + locale.localize('Tint') + '"></div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-tint">\n                    <label for="tie-tint"></label>\n                </div>\n            </div>\n            <div class="filter-color-item">\n                <div id="tie-filter-multiply-color" title="' + locale.localize('Multiply') + '"></div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-multiply">\n                    <label for="tie-multiply"></label>\n                </div>\n            </div>\n            <div class="filter-color-item">\n                <div id="tie-filter-blend-color" title="' + locale.localize('Blend') + '"></div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-blend">\n                    <label for="tie-blend"></label>\n                </div>\n            </div>\n        </li>\n    </ul>\n';
-=======
 	    return '\n    <ul class="tui-image-editor-submenu-item">\n        <li class="tui-image-editor-submenu-align">\n            <div class="tui-image-editor-checkbox-wrap fixed-width">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-grayscale">\n                    <label for="tie-grayscale">' + locale.localize('Grayscale') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-invert">\n                    <label for="tie-invert">' + locale.localize('Invert') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-sepia">\n                    <label for="tie-sepia">' + locale.localize('Sepia') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-sepia2">\n                    <label for="tie-sepia2">' + locale.localize('Sepia2') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-blur">\n                    <label for="tie-blur">' + locale.localize('Blur') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-sharpen">\n                    <label for="tie-sharpen">' + locale.localize('Sharpen') + '</label>\n                </div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-emboss">\n                    <label for="tie-emboss">' + locale.localize('Emboss') + '</label>\n                </div>\n            </div>\n        </li>\n        <li class="tui-image-editor-partition">\n            <div></div>\n        </li>\n        <li class="tui-image-editor-submenu-align">\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled" style="margin-bottom: 7px;">\n                <div class="tui-image-editor-checkbox-wrap">\n                    <div class="tui-image-editor-checkbox">\n                        <input type="checkbox" id="tie-remove-white">\n                        <label for="tie-remove-white">' + locale.localize('Remove White') + '</label>\n                    </div>\n                </div>\n                <div class="tui-image-editor-newline tui-image-editor-range-wrap short">\n                    <label>' + locale.localize('Distance') + '</label>\n                    <div id="tie-removewhite-distance-range"></div>\n                </div>\n            </div>\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-brightness">\n                    <label for="tie-brightness">' + locale.localize('Brightness') + '</label>\n                </div>\n                <div class="tui-image-editor-range-wrap short">\n                    <div id="tie-brightness-range"></div>\n                </div>\n            </div>\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-noise">\n                    <label for="tie-noise">' + locale.localize('Noise') + '</label>\n                </div>\n                <div class="tui-image-editor-range-wrap short">\n                    <div id="tie-noise-range"></div>\n                </div>\n            </div>\n        </li>\n        <li class="tui-image-editor-partition only-left-right">\n            <div></div>\n        </li>\n        <li class="tui-image-editor-submenu-align">\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-pixelate">\n                    <label for="tie-pixelate">' + locale.localize('Pixelate') + '</label>\n                </div>\n                <div class="tui-image-editor-range-wrap short">\n                    <div id="tie-pixelate-range"></div>\n                </div>\n            </div>\n            <div class="tui-image-editor-checkbox-group tui-image-editor-disabled">\n                <div class="tui-image-editor-newline tui-image-editor-checkbox-wrap">\n                    <div class="tui-image-editor-checkbox">\n                        <input type="checkbox" id="tie-color-filter">\n                        <label for="tie-color-filter">' + locale.localize('Color Filter') + '</label>\n                    </div>\n                </div>\n                <div class="tui-image-editor-newline tui-image-editor-range-wrap short">\n                    <label>' + locale.localize('Threshold') + '</label>\n                    <div id="tie-colorfilter-threshole-range"></div>\n                </div>\n            </div>\n        </li>\n        <li class="tui-image-editor-partition">\n            <div></div>\n        </li>\n        <li>\n            <div class="filter-color-item">\n                <div id="tie-filter-tint-color" title="' + locale.localize('Tint') + '"></div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-tint">\n                    <label for="tie-tint"></label>\n                </div>\n            </div>\n            <div class="filter-color-item">\n                <div id="tie-filter-multiply-color" title="' + locale.localize('Multiply') + '"></div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-multiply">\n                    <label for="tie-multiply"></label>\n                </div>\n            </div>\n            <div class="filter-color-item">\n                <div id="tie-filter-blend-color" title="' + locale.localize('Blend') + '"></div>\n                <div class="tui-image-editor-checkbox">\n                    <input type="checkbox" id="tie-blend">\n                    <label for="tie-blend"></label>\n                </div>\n            </div>\n        </li>\n    </ul>\n';
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	};
 
 /***/ }),
@@ -9483,11 +8991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-<<<<<<< HEAD
-	    value: true
-=======
 	  value: true
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9498,29 +9002,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Translate messages
 	 */
 	var Locale = function () {
-<<<<<<< HEAD
-	    function Locale(locale) {
-	        _classCallCheck(this, Locale);
-
-	        this._locale = locale;
-	    }
-
-	    /**
-	     * localize message
-	     * @param {string} message - message who will be localized
-	     * @returns {string}
-	     */
-
-
-	    _createClass(Locale, [{
-	        key: "localize",
-	        value: function localize(message) {
-	            return this._locale[message] || message;
-	        }
-	    }]);
-
-	    return Locale;
-=======
 	  /**
 	   * @constructor
 	   * @param {Object} locale - Locale object for initialise
@@ -9546,7 +9027,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Locale;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	}();
 
 	exports.default = Locale;
@@ -9610,8 +9090,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this.ui.changeMenu('crop');
 	            }
 	        };
-<<<<<<< HEAD
-=======
 	        var setAngleRangeBarOnAction = function setAngleRangeBarOnAction(angle) {
 	            if (_this.ui.submenu === 'rotate') {
 	                _this.ui.rotate.setRangeBarAngle('setAngle', angle);
@@ -9622,7 +9100,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            return result;
 	        };
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        return (0, _tuiCodeSnippet.extend)({
 	            initLoadImage: function initLoadImage(imagePath, imageName) {
@@ -9631,30 +9108,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _this.ui.initializeImgUrl = imagePath;
 	                    _this.ui.resizeEditor({ imageSize: sizeValue });
 	                    _this.clearUndoStack();
-<<<<<<< HEAD
 	                    _this.fire('image_loaded');
-=======
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                });
 	            },
 	            undo: function undo() {
 	                if (!_this.isEmptyUndoStack()) {
 	                    exitCropOnAction();
-<<<<<<< HEAD
-	                    _this.undo();
-=======
 	                    _this.undo().then(onEndUndoRedo);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                }
 	            },
 	            redo: function redo() {
 	                if (!_this.isEmptyRedoStack()) {
 	                    exitCropOnAction();
-<<<<<<< HEAD
-	                    _this.redo();
-=======
 	                    _this.redo().then(onEndUndoRedo);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                }
 	            },
 	            reset: function reset() {
@@ -9886,15 +9352,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this6 = this;
 
 	        return (0, _tuiCodeSnippet.extend)({
-<<<<<<< HEAD
-	            rotate: function rotate(angle) {
-	                _this6.rotate(angle);
-	                _this6.ui.resizeEditor();
-	            },
-	            setAngle: function setAngle(angle) {
-	                _this6.setAngle(angle);
-	                _this6.ui.resizeEditor();
-=======
 	            rotate: function rotate(angle, isSilent) {
 	                _this6.rotate(angle, isSilent);
 	                _this6.ui.resizeEditor();
@@ -9904,7 +9361,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this6.setAngle(angle, isSilent);
 	                _this6.ui.resizeEditor();
 	                _this6.ui.rotate.setRangeBarAngle('setAngle', angle);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 	        }, this._commonAction());
 	    },
@@ -10087,11 +9543,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            },
 	            /* eslint-enable complexity */
 	            addText: function addText(pos) {
-<<<<<<< HEAD
 	                _this11.addText('Enter text here', {
-=======
-	                _this11.addText('Double Click', {
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                    position: pos.originPosition,
 	                    styles: {
 	                        fill: _this11.ui.text.textColor,
@@ -11340,11 +10792,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @fileoverview Graphics module
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
@@ -11575,10 +11023,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            onSelectionCreated: this._onSelectionCreated.bind(this)
 	        };
 
-<<<<<<< HEAD
-=======
 	        this._setObjectCachingToFalse();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        this._setCanvasElement(element);
 	        this._createDrawingModeInstances();
 	        this._createComponents();
@@ -11609,11 +11054,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'deactivateAll',
 	        value: function deactivateAll() {
-<<<<<<< HEAD
-	            this._canvas.deactivateAll();
-=======
 	            this._canvas.discardActiveObject();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	            return this;
 	        }
@@ -11732,16 +11173,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var isValidGroup = target && target.isType('group') && !target.isEmpty();
 
 	            if (isValidGroup) {
-<<<<<<< HEAD
-	                canvas.discardActiveGroup(); // restore states for each objects
-	                target.forEachObject(function (obj) {
-	                    objects.push(obj);
-	                    obj.remove();
-	                });
-	            } else if (canvas.contains(target)) {
-	                objects.push(target);
-	                target.remove();
-=======
 	                canvas.discardActiveObject(); // restore states for each objects
 	                target.forEachObject(function (obj) {
 	                    objects.push(obj);
@@ -11750,7 +11181,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            } else if (canvas.contains(target)) {
 	                objects.push(target);
 	                canvas.remove(target);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 
 	            return objects;
@@ -11785,11 +11215,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'getActiveObject',
 	        value: function getActiveObject() {
-<<<<<<< HEAD
-	            return this._canvas.getActiveObject();
-=======
 	            return this._canvas._activeObject;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -11798,17 +11224,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 
 	    }, {
-<<<<<<< HEAD
-	        key: 'getActiveGroupObject',
-	        value: function getActiveGroupObject() {
-	            return this._canvas.getActiveGroup();
-=======
 	        key: 'getActiveObjects',
 	        value: function getActiveObjects() {
 	            var activeObject = this._canvas._activeObject;
 
 	            return activeObject && activeObject.type === 'activeSelection' ? activeObject : null;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -12377,8 +11797,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        /**
-<<<<<<< HEAD
-=======
 	         * Set object caching to false. This brought many bugs when draw Shape & cropzone
 	         * @see http://fabricjs.com/fabric-object-caching
 	         * @private
@@ -12391,7 +11809,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        /**
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	         * Set canvas element to fabric.Canvas
 	         * @param {Element|string} element - Wrapper or canvas element or selector
 	         * @private
@@ -12551,12 +11968,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'object:selected': handler.onObjectSelected,
 	                'path:created': handler.onPathCreated,
 	                'selection:cleared': handler.onSelectionCleared,
-<<<<<<< HEAD
-	                'selection:created': handler.onSelectionCreated
-=======
 	                'selection:created': handler.onSelectionCreated,
 	                'selection:updated': handler.onObjectSelected
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            });
 	        }
 
@@ -12698,10 +12111,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'discardSelection',
 	        value: function discardSelection() {
-<<<<<<< HEAD
-	            this._canvas.discardActiveGroup();
-=======
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            this._canvas.discardActiveObject();
 	            this._canvas.renderAll();
 	        }
@@ -12827,11 +12236,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Image loader
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -12947,11 +12352,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Component interface
 	 */
 
@@ -13160,11 +12561,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Image crop module (start cropping, end cropping)
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -13254,19 +12651,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                obj.evented = false;
 	            });
 
-<<<<<<< HEAD
-	            this._cropzone = new _cropzone2.default({
-	                left: -10,
-	                top: -10,
-	                width: 1,
-	                height: 1,
-=======
 	            this._cropzone = new _cropzone2.default(canvas, {
 	                left: 0,
 	                top: 0,
 	                width: 0.5,
 	                height: 0.5,
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                strokeWidth: 0, // {@link https://github.com/kangax/fabric.js/issues/2860}
 	                cornerSize: 10,
 	                cornerColor: 'black',
@@ -13277,11 +12666,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                lockRotation: true
 	            }, this.graphics.cropSelectionStyle);
 
-<<<<<<< HEAD
-	            canvas.deactivateAll();
-=======
 	            canvas.discardActiveObject();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            canvas.add(this._cropzone);
 	            canvas.on('mouse:down', this._listeners.mousedown);
 	            canvas.selection = false;
@@ -13304,11 +12689,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (!cropzone) {
 	                return;
 	            }
-<<<<<<< HEAD
-	            cropzone.remove();
-=======
 	            canvas.remove(cropzone);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            canvas.selection = true;
 	            canvas.defaultCursor = 'default';
 	            canvas.off('mouse:down', this._listeners.mousedown);
@@ -13366,18 +12747,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var cropzone = this._cropzone;
 
 	            if (Math.abs(x - this._startX) + Math.abs(y - this._startY) > MOUSE_MOVE_THRESHOLD) {
-<<<<<<< HEAD
-	                cropzone.remove();
-	                cropzone.set(this._calcRectDimensionFromPoint(x, y));
-
-	                canvas.add(cropzone);
-=======
 	                canvas.remove(cropzone);
 	                cropzone.set(this._calcRectDimensionFromPoint(x, y));
 
 	                canvas.add(cropzone);
 	                canvas.setActiveObject(cropzone);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 	        }
 
@@ -13466,11 +12840,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            if (containsCropzone) {
-<<<<<<< HEAD
-	                this._cropzone.remove();
-=======
 	                canvas.remove(this._cropzone);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }
 
 	            var imageData = {
@@ -13500,17 +12870,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            return {
-<<<<<<< HEAD
-	                left: cropzone.getLeft(),
-	                top: cropzone.getTop(),
-	                width: cropzone.getWidth(),
-	                height: cropzone.getHeight()
-=======
 	                left: cropzone.left,
 	                top: cropzone.top,
 	                width: cropzone.width,
 	                height: cropzone.height
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            };
 	        }
 
@@ -13525,15 +12888,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var canvas = this.getCanvas();
 	            var cropzone = this._cropzone;
 
-<<<<<<< HEAD
-	            canvas.deactivateAll();
-	            canvas.selection = false;
-	            cropzone.remove();
-=======
 	            canvas.discardActiveObject();
 	            canvas.selection = false;
 	            canvas.remove(cropzone);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	            cropzone.set(presetRatio ? this._getPresetCropSizePosition(presetRatio) : DEFAULT_OPTION);
 
@@ -13648,11 +13005,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CORNER_TYPE_TOP_LEFT = 'tl'; /**
-<<<<<<< HEAD
-	                                  * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                  * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                  * @fileoverview Cropzone extending fabric.Rect
 	                                  */
 
@@ -13675,45 +13028,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Cropzone = _fabric2.default.util.createClass(_fabric2.default.Rect, /** @lends Cropzone.prototype */{
 	    /**
 	     * Constructor
-<<<<<<< HEAD
-	     * @param {Object} options Options object
-	     * @override
-	     */
-	    initialize: function initialize(options, extendsOptions) {
-=======
 	     * @param {Object} canvas canvas
 	     * @param {Object} options Options object
 	     * @param {Object} extendsOptions object for extends "options" 
 	     * @override
 	     */
 	    initialize: function initialize(canvas, options, extendsOptions) {
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        options = _tuiCodeSnippet2.default.extend(options, extendsOptions);
 	        options.type = 'cropzone';
 
 	        this.callSuper('initialize', options);
 
-<<<<<<< HEAD
-	        this.options = options;
-
-	        this.on({
-	            'moving': this._onMoving,
-	            'scaling': this._onScaling
-	        });
-	    },
-
-
-	    /**
-	     * Render Crop-zone
-	     * @param {CanvasRenderingContext2D} ctx - Context
-	     * @private
-	     * @override
-	     */
-	    _render: function _render(ctx) {
-	        var cropzoneDashLineWidth = 7;
-	        var cropzoneDashLineOffset = 7;
-	        this.callSuper('_render', ctx);
-=======
 	        this.canvas = canvas;
 	        this.options = options;
 
@@ -13725,7 +13050,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _renderCropzone: function _renderCropzone() {
 	        var cropzoneDashLineWidth = 7;
 	        var cropzoneDashLineOffset = 7;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        // Calc original scale
 	        var originalFlipX = this.flipX ? -1 : 1;
@@ -13734,18 +13058,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var originalScaleY = originalFlipY / this.scaleY;
 
 	        // Set original scale
-<<<<<<< HEAD
-	        ctx.scale(originalScaleX, originalScaleY);
-
-	        // Render outer rect
-	        this._fillOuterRect(ctx, 'rgba(0, 0, 0, 0.55)');
-=======
 	        var ctx = this.canvas.getContext();
 	        ctx.scale(originalScaleX, originalScaleY);
 
 	        // Render outer rect
 	        this._fillOuterRect(ctx, 'rgba(0, 0, 0, 0.5)');
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        if (this.options.lineWidth) {
 	            this._fillInnerRect(ctx);
@@ -13771,8 +13088,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	    /**
-<<<<<<< HEAD
-=======
 	     * Render Crop-zone
 	     * @private
 	     * @override
@@ -13787,7 +13102,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	    /**
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * Cropzone-coordinates with outer rectangle
 	     *
 	     *     x0     x1         x2      x3
@@ -13813,11 +13127,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @private
 	     */
 	    _fillOuterRect: function _fillOuterRect(ctx, fillStyle) {
-<<<<<<< HEAD
-	        var _getCoordinates = this._getCoordinates(ctx),
-=======
 	        var _getCoordinates = this._getCoordinates(),
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            x = _getCoordinates.x,
 	            y = _getCoordinates.y;
 
@@ -13853,11 +13163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @private
 	     */
 	    _fillInnerRect: function _fillInnerRect(ctx) {
-<<<<<<< HEAD
-	        var _getCoordinates2 = this._getCoordinates(ctx),
-=======
 	        var _getCoordinates2 = this._getCoordinates(),
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            outerX = _getCoordinates2.x,
 	            outerY = _getCoordinates2.y;
 
@@ -13890,11 +13196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * Calculate Inner Position
 	     * @param {Array} outer - outer position
-<<<<<<< HEAD
-	     * @param {number} size - interval for calcaulate
-=======
 	     * @param {number} size - interval for calculate
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @returns {Array} - inner position
 	     * @private
 	     */
@@ -13911,20 +13213,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    /**
 	     * Get coordinates
-<<<<<<< HEAD
-	     * @param {CanvasRenderingContext2D} ctx - Context
-	     * @returns {cropzoneCoordinates} - {@link cropzoneCoordinates}
-	     * @private
-	     */
-	    _getCoordinates: function _getCoordinates(ctx) {
-	        var width = this.getWidth(),
-	            height = this.getHeight(),
-	            halfWidth = width / 2,
-	            halfHeight = height / 2,
-	            left = this.getLeft(),
-	            top = this.getTop(),
-	            canvasEl = ctx.canvas; // canvas element, not fabric object
-=======
 	     * @returns {cropzoneCoordinates} - {@link cropzoneCoordinates}
 	     * @private
 	     */
@@ -13939,26 +13227,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var halfHeight = height / 2;
 	        var canvasHeight = canvas.getHeight(); // fabric object
 	        var canvasWidth = canvas.getWidth(); // fabric object
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        return {
 	            x: _tuiCodeSnippet2.default.map([-(halfWidth + left), // x0
 	            -halfWidth, // x1
 	            halfWidth, // x2
-<<<<<<< HEAD
-	            halfWidth + (canvasEl.width - left - width) // x3
-=======
 	            halfWidth + (canvasWidth - left - width) // x3
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            ], Math.ceil),
 	            y: _tuiCodeSnippet2.default.map([-(halfHeight + top), // y0
 	            -halfHeight, // y1
 	            halfHeight, // y2
-<<<<<<< HEAD
-	            halfHeight + (canvasEl.height - top - height) // y3
-=======
 	            halfHeight + (canvasHeight - top - height) // y3
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            ], Math.ceil)
 	        };
 	    },
@@ -13970,10 +13249,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param {string|CanvasGradient|CanvasPattern} strokeStyle - Stroke-style
 	     * @param {number} lineDashWidth - Dash width
 	     * @param {number} [lineDashOffset] - Dash offset
-<<<<<<< HEAD
-=======
 	     * @param {number} [lineWidth] - line width
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @private
 	     */
 	    _strokeBorder: function _strokeBorder(ctx, strokeStyle, _ref) {
@@ -13981,13 +13257,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            lineDashOffset = _ref.lineDashOffset,
 	            lineWidth = _ref.lineWidth;
 
-<<<<<<< HEAD
-	        var halfWidth = this.getWidth() / 2,
-	            halfHeight = this.getHeight() / 2;
-=======
 	        var halfWidth = this.width / 2;
 	        var halfHeight = this.height / 2;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        ctx.save();
 	        ctx.strokeStyle = strokeStyle;
@@ -14019,17 +13290,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @private
 	     */
 	    _onMoving: function _onMoving() {
-<<<<<<< HEAD
-	        var left = this.getLeft(),
-	            top = this.getTop(),
-	            width = this.getWidth(),
-	            height = this.getHeight(),
-	            maxLeft = this.canvas.getWidth() - width,
-	            maxTop = this.canvas.getHeight() - height;
-
-	        this.setLeft((0, _util.clamp)(left, 0, maxLeft));
-	        this.setTop((0, _util.clamp)(top, 0, maxTop));
-=======
 	        var height = this.height,
 	            width = this.width,
 	            left = this.left,
@@ -14040,7 +13300,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.left = (0, _util.clamp)(left, 0, maxLeft);
 	        this.top = (0, _util.clamp)(top, 0, maxTop);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    },
 
 
@@ -14050,13 +13309,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @private
 	     */
 	    _onScaling: function _onScaling(fEvent) {
-<<<<<<< HEAD
-	        var pointer = this.canvas.getPointer(fEvent.e),
-	            settings = this._calcScalingSizeFromPointer(pointer);
-=======
 	        var pointer = this.canvas.getPointer(fEvent.e);
 	        var settings = this._calcScalingSizeFromPointer(pointer);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        // On scaling cropzone,
 	        // change real width and height and fix scaleFactor to 1
@@ -14092,19 +13346,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @private
 	     */
 	    _calcTopLeftScalingSizeFromPointer: function _calcTopLeftScalingSizeFromPointer(x, y) {
-<<<<<<< HEAD
-	        var bottom = this.getHeight() + this.top,
-	            right = this.getWidth() + this.left,
-	            top = (0, _util.clamp)(y, 0, bottom - 1),
-	            // 0 <= top <= (bottom - 1)
-	        left = (0, _util.clamp)(x, 0, right - 1); // 0 <= left <= (right - 1)
-=======
 	        var rect = this.getBoundingRect(false, true);
 	        var bottom = rect.height + this.top;
 	        var right = rect.width + this.left;
 	        var top = (0, _util.clamp)(y, 0, bottom - 1); // 0 <= top <= (bottom - 1)
 	        var left = (0, _util.clamp)(x, 0, right - 1); // 0 <= left <= (right - 1)
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        // When scaling "Top-Left corner": It fixes right and bottom coordinates
 	        return {
@@ -14249,11 +13495,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Image flip module
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -14343,11 +13585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (isChangingFlipY) {
 	                angle *= -1;
 	            }
-<<<<<<< HEAD
-	            canvasImage.setAngle(parseFloat(angle)).setCoords(); // parseFloat for -0 to 0
-=======
 	            canvasImage.rotate(parseFloat(angle)).setCoords(); // parseFloat for -0 to 0
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -14466,11 +13704,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Image rotation module
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -14526,11 +13760,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            var canvasImage = this.getCanvasImage();
 	            var oldImageCenter = canvasImage.getCenterPoint();
-<<<<<<< HEAD
-	            canvasImage.setAngle(angle).setCoords();
-=======
 	            canvasImage.set({ angle: angle }).setCoords();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            this.adjustCanvasDimension();
 	            var newImageCenter = canvasImage.getCenterPoint();
 	            this._rotateForEachObject(oldImageCenter, newImageCenter, angle - oldAngle);
@@ -14617,11 +13847,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Free drawing module, Set brush
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -14734,11 +13960,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Free drawing module, Set brush
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -14974,11 +14196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Text module
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -15161,11 +14379,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                canvas.forEachObject(function (obj) {
 	                    if (obj.type === 'i-text') {
 	                        if (obj.text === '') {
-<<<<<<< HEAD
-	                            obj.remove();
-=======
 	                            canvas.remove(obj);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                        } else {
 	                            obj.set({
 	                                left: obj.left + obj.width / 2,
@@ -15177,11 +14391,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                });
 	            } else {
-<<<<<<< HEAD
-	                canvas.deactivateAllWithDispatch();
-=======
 	                canvas.discardActiveObject();
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                this._removeTextarea();
 	            }
 
@@ -15241,15 +14451,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	                newText.on({
 	                    mouseup: _this2._onFabricMouseUp.bind(_this2)
 	                });
-<<<<<<< HEAD
-	                canvas.on('text:editing:entered', _this2.onFabricClearText.bind(_this2));
-=======
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
+	                canvas.on('text:editing:entered', onFabricClearText);
 
 	                canvas.add(newText);
 
 	                if (!canvas.getActiveObject()) {
 	                    canvas.setActiveObject(newText);
+	                }
+
+	                function onFabricClearText(e) {
+	                    var obj = canvas.getActiveObject();
+	                    if (e.target.text === 'Enter text here') {
+	                        obj.selectAll();
+	                        obj.removeChars();
+	                        e.target.text = '';
+	                        canvas.renderAll();
+	                    }
 	                }
 
 	                _this2.isPrevEditing = true;
@@ -15297,32 +14514,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var _this4 = this;
 
 	            return new _promise2.default(function (resolve) {
-<<<<<<< HEAD
-	                if (styleObj.textAlign) {
-	                    _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
-	                        if (activeObj[key] === val) {
-	                            styleObj[key] = resetStyles[key] || '';
-	                        }
-	                    }, _this4);
-	                    activeObj.set(styleObj);
-	                } else {
-	                    _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
-	                        var selectedPart = activeObj.getSelectionStyles();
-	                        if (selectedPart[key] === val) {
-	                            styleObj[key] = resetStyles[key] || '';
-	                        }
-	                    }, _this4);
-	                    _this4.getCanvas().getActiveObject().setSelectionStyles(styleObj);
+	                var allSelect = activeObj.selectionEnd === activeObj.selectionStart;
+	                var textAlignChange = styleObj.textAlign;
+
+	                if (allSelect) {
+	                    activeObj.selectAll();
 	                }
-=======
+
+	                var selectedObject = activeObj;
+
+	                if (!textAlignChange) {
+	                    selectedObject = activeObj.getSelectionStyles();
+	                }
+
 	                _tuiCodeSnippet2.default.forEach(styleObj, function (val, key) {
-	                    if (activeObj[key] === val) {
+	                    if (selectedObject[key] === val) {
 	                        styleObj[key] = resetStyles[key] || '';
 	                    }
 	                }, _this4);
 
-	                activeObj.set(styleObj);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
+	                if (textAlignChange) {
+	                    activeObj.set(styleObj);
+	                } else {
+	                    activeObj.setSelectionStyles(styleObj);
+	                }
 
 	                _this4.getCanvas().renderAll();
 	                resolve();
@@ -15338,11 +14553,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'getText',
 	        value: function getText(activeObj) {
-<<<<<<< HEAD
-	            return activeObj.getText();
-=======
 	            return activeObj.text;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -15435,10 +14646,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            textarea.className = TEXTAREA_CLASSNAME;
 	            textarea.setAttribute('style', TEXTAREA_STYLES);
 	            textarea.setAttribute('wrap', 'off');
-<<<<<<< HEAD
 	            textarea.setAttribute('data-empty', '1');
-=======
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	            container.appendChild(textarea);
 
@@ -15495,14 +14703,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var ratio = this.getCanvasRatio();
 	            var obj = this._editingObj;
 	            var textareaStyle = this._textarea.style;
-<<<<<<< HEAD
-	            textareaStyle.width = Math.ceil(obj.getWidth() / ratio) + 'px';
-	            textareaStyle.height = Math.ceil(obj.getHeight() / ratio) + 'px';
-=======
-
 	            textareaStyle.width = Math.ceil(obj.width / ratio) + 'px';
 	            textareaStyle.height = Math.ceil(obj.height / ratio) + 'px';
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -15518,19 +14720,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var ratio = this.getCanvasRatio();
 	            var obj = this._editingObj;
 	            var textareaStyle = this._textarea.style;
-<<<<<<< HEAD
-	            setTimeout(function () {
-	                obj.setText(_this5._textarea.value);
-	                textareaStyle.width = Math.ceil(obj.getWidth() / ratio) + 'px';
-	                textareaStyle.height = Math.ceil(obj.getHeight() / ratio) + 'px';
-=======
-
 	            setTimeout(function () {
 	                obj.text(_this5._textarea.value);
 
 	                textareaStyle.width = Math.ceil(obj.width / ratio) + 'px';
 	                textareaStyle.height = Math.ceil(obj.height / ratio) + 'px';
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            }, 0);
 	        }
 
@@ -15546,22 +14740,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var editingObj = this._editingObj;
 	            var editingObjInfos = this._editingObjInfos;
 	            var textContent = this._textarea.value;
-<<<<<<< HEAD
-	            var transWidth = editingObj.getWidth() / ratio - editingObjInfos.width / ratio;
-	            var transHeight = editingObj.getHeight() / ratio - editingObjInfos.height / ratio;
-=======
+
 	            var transWidth = editingObj.width / ratio - editingObjInfos.width / ratio;
 	            var transHeight = editingObj.height / ratio - editingObjInfos.height / ratio;
 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            if (ratio === 1) {
 	                transWidth /= 2;
 	                transHeight /= 2;
 	            }
-<<<<<<< HEAD
-=======
-
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            this._textarea.style.display = 'none';
 
 	            editingObj.set({
@@ -15604,19 +14790,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_onFabricScaling',
 	        value: function _onFabricScaling(fEvent) {
 	            var obj = fEvent.target;
-<<<<<<< HEAD
-	            var scalingSize = obj.getFontSize() * obj.getScaleY();
-
-	            obj.setFontSize(scalingSize);
-	            obj.setScaleX(1);
-	            obj.setScaleY(1);
-=======
 	            var scalingSize = obj.fontSize * obj.scaleY;
 
 	            obj.fontSize = scalingSize;
 	            obj.scaleX = 1;
 	            obj.scaleY = 1;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -15633,18 +14811,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.isPrevEditing = true;
 
 	            this.setSelectedInfo(fEvent.target, false);
-<<<<<<< HEAD
-	            if (obj) {
-	                // obj is empty object at initial time, will be set fabric object
-	                if (obj.text === '') {
-	                    obj.remove();
-=======
-
 	            if (obj) {
 	                // obj is empty object at initial time, will be set fabric object
 	                if (obj.text === '') {
 	                    this.getCanvas().remove(obj);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                }
 	            }
 	        }
@@ -15659,10 +14829,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_onFabricSelect',
 	        value: function _onFabricSelect(fEvent) {
 	            this.isPrevEditing = true;
-<<<<<<< HEAD
-=======
-
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            this.setSelectedInfo(fEvent.target, true);
 	        }
 
@@ -15676,23 +14842,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_onFabricMouseDown',
 	        value: function _onFabricMouseDown(fEvent) {
 	            var obj = fEvent.target;
-<<<<<<< HEAD
 	            if (obj && !obj.isType('text')) {
 	                return;
 	            }
-=======
-
-	            if (obj && !obj.isType('text')) {
-	                return;
-	            }
-
-	            if (this.isPrevEditing) {
-	                this.isPrevEditing = false;
-
-	                return;
-	            }
-
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            this._fireAddText(fEvent);
 	        }
 
@@ -15708,10 +14860,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var obj = fEvent.target;
 	            var e = fEvent.e || {};
 	            var originPointer = this.getCanvas().getPointer(e);
-<<<<<<< HEAD
-=======
-
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            if (!obj) {
 	                this.fire(events.ADD_TEXT, {
 	                    originPosition: {
@@ -15725,18 +14873,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            }
 	        }
-<<<<<<< HEAD
-	    }, {
-	        key: 'onFabricClearText',
-	        value: function onFabricClearText() {
-	            var obj = this.getSelectedObj();
-	            if (obj.text === 'Enter text here') {
-	                obj.selectAll();
-	                obj.removeChars();
-	            }
-	        }
-=======
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        /**
 	         * Fabric mouseup event handler
@@ -15747,15 +14883,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_onFabricMouseUp',
 	        value: function _onFabricMouseUp(fEvent) {
-<<<<<<< HEAD
-	            var newClickTime = new Date().getTime();
-	            // if (this._isDoubleClick(newClickTime)) {
-	            if (!this.useItext) {
-	                this._changeToEditingMode(fEvent.target);
-	            }
-	            this.fire(events.TEXT_EDITING); // fire editing text event
-	            // }
-=======
 	            var target = fEvent.target;
 
 	            var newClickTime = new Date().getTime();
@@ -15766,7 +14893,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	                this.fire(events.TEXT_EDITING); // fire editing text event
 	            }
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
+	            this.fire(events.TEXT_EDITING); // fire editing text event
+	            // }
 
 	            this._lastClickTime = newClickTime;
 	        }
@@ -15795,20 +14923,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: function _changeToEditingMode(obj) {
 	            var ratio = this.getCanvasRatio();
 	            var textareaStyle = this._textarea.style;
-<<<<<<< HEAD
-	            this.isPrevEditing = true;
-
-	            obj.remove();
-
-	            this._editingObj = obj;
-	            this._textarea.value = obj.getText();
-
-	            this._editingObjInfos = {
-	                left: this._editingObj.getLeft(),
-	                top: this._editingObj.getTop(),
-	                width: this._editingObj.getWidth(),
-	                height: this._editingObj.getHeight()
-=======
 	            var canvas = this.getCanvas();
 
 	            this.isPrevEditing = true;
@@ -15824,25 +14938,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                top: obj.top,
 	                width: obj.width,
 	                height: obj.height
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            };
 
 	            textareaStyle.display = 'block';
 	            textareaStyle.left = obj.oCoords.tl.x / ratio + 'px';
 	            textareaStyle.top = obj.oCoords.tl.y / ratio + 'px';
-<<<<<<< HEAD
-	            textareaStyle.width = Math.ceil(obj.getWidth() / ratio) + 'px';
-	            textareaStyle.height = Math.ceil(obj.getHeight() / ratio) + 'px';
-	            textareaStyle.transform = 'rotate(' + obj.getAngle() + 'deg)';
-	            textareaStyle.color = obj.getFill();
-
-	            textareaStyle['font-size'] = obj.getFontSize() / ratio + 'px';
-	            textareaStyle['font-family'] = obj.getFontFamily();
-	            textareaStyle['font-style'] = obj.getFontStyle();
-	            textareaStyle['font-weight'] = obj.getFontWeight();
-	            textareaStyle['text-align'] = obj.getTextAlign();
-	            textareaStyle['line-height'] = obj.getLineHeight() + EXTRA_PIXEL_LINEHEIGHT;
-=======
 	            textareaStyle.width = Math.ceil(obj.width / ratio) + 'px';
 	            textareaStyle.height = Math.ceil(obj.height / ratio) + 'px';
 	            textareaStyle.transform = 'rotate(' + obj.angle + 'deg)';
@@ -15854,7 +14954,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            textareaStyle['font-weight'] = obj.fontWeight;
 	            textareaStyle['text-align'] = obj.textAlign;
 	            textareaStyle['line-height'] = obj.lineHeight + EXTRA_PIXEL_LINEHEIGHT;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	            textareaStyle['transform-origin'] = 'left top';
 
 	            this._textarea.focus();
@@ -15901,11 +15000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Add icon module
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -16057,11 +15152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this._oColor = color;
 
 	            if (obj && obj.get('type') === 'icon') {
-<<<<<<< HEAD
-	                obj.setFill(this._oColor);
-=======
 	                obj.set({ fill: this._oColor });
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                this.getCanvas().renderAll();
 	            }
 	        }
@@ -16149,11 +15240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Add filter module
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -16314,15 +15401,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_apply',
 	        value: function _apply(sourceImg, callback) {
-<<<<<<< HEAD
-	            sourceImg.applyFilters(callback);
-=======
 	            sourceImg.filters.push();
 	            var result = sourceImg.applyFilters();
 	            if (result) {
 	                callback();
 	            }
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        }
 
 	        /**
@@ -16445,18 +15528,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Mask object
 	 * @class Mask
-<<<<<<< HEAD
-	 * @extends {fabric.Image.filters.Mask}
-	 * @ignore
-	 */
-	var Mask = _fabric2.default.util.createClass(_fabric2.default.Image.filters.Mask, /** @lends Mask.prototype */{
-	    /**
-	     * Apply filter to canvas element
-	     * @param {Object} canvasEl - Canvas element to apply filter
-	     * @override
-	     */
-	    applyTo: function applyTo(canvasEl) {
-=======
 	 * @extends {fabric.Image.filters.BlendImage}
 	 * @ignore
 	 */
@@ -16467,25 +15538,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @override
 	     */
 	    applyTo: function applyTo(pipelineState) {
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        if (!this.mask) {
 	            return;
 	        }
 
-<<<<<<< HEAD
-	        var width = canvasEl.width,
-	            height = canvasEl.height;
-
-	        var maskCanvasEl = this._createCanvasOfMask(width, height);
-	        var ctx = canvasEl.getContext('2d');
-	        var maskCtx = maskCanvasEl.getContext('2d');
-	        var imageData = ctx.getImageData(0, 0, width, height);
-
-	        this._drawMask(maskCtx, canvasEl, ctx);
-	        this._mapData(maskCtx, imageData, width, height);
-
-	        ctx.putImageData(imageData, 0, 0);
-=======
 	        var canvas = pipelineState.canvasEl;
 	        var width = canvas.width,
 	            height = canvas.height;
@@ -16499,7 +15555,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this._mapData(maskCtx, imageData, width, height);
 
 	        pipelineState.imageData = imageData;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    },
 
 
@@ -16529,28 +15584,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var mask = this.mask;
 
 	        var maskImg = mask.getElement();
-<<<<<<< HEAD
-
-	        var left = mask.getLeft();
-	        var top = mask.getTop();
-	        var angle = mask.getAngle();
-=======
 	        var angle = mask.angle,
 	            left = mask.left,
 	            scaleX = mask.scaleX,
 	            scaleY = mask.scaleY,
 	            top = mask.top;
 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        maskCtx.save();
 	        maskCtx.translate(left, top);
 	        maskCtx.rotate(angle * Math.PI / 180);
-<<<<<<< HEAD
-	        maskCtx.scale(mask.scaleX, mask.scaleY);
-=======
 	        maskCtx.scale(scaleX, scaleY);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        maskCtx.drawImage(maskImg, -maskImg.width / 2, -maskImg.height / 2);
 	        maskCtx.restore();
 	    },
@@ -16565,20 +15609,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @private
 	     */
 	    _mapData: function _mapData(maskCtx, imageData, width, height) {
-<<<<<<< HEAD
-	        var sourceData = imageData.data;
-	        var maskData = maskCtx.getImageData(0, 0, width, height).data;
-	        var channel = this.channel;
-
-	        var len = imageData.width * imageData.height * 4;
-
-	        for (var i = 0; i < len; i += 4) {
-	            sourceData[i + 3] = maskData[i + channel]; // adjust value of alpha data
-	        }
-	    }
-	}); /**
-	     * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	        var data = imageData.data,
 	            imgHeight = imageData.height,
 	            imgWidth = imageData.width;
@@ -16593,7 +15623,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	}); /**
 	     * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @fileoverview Mask extending fabric.Image.filters.Mask
 	     */
 
@@ -16635,11 +15664,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.matrix = matrix;
 	  }
 	}); /**
-<<<<<<< HEAD
-	     * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	     * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @fileoverview Blur extending fabric.Image.filters.Convolute
 	     */
 
@@ -16681,11 +15706,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.matrix = matrix;
 	  }
 	}); /**
-<<<<<<< HEAD
-	     * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	     * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @fileoverview Sharpen extending fabric.Image.filters.Convolute
 	     */
 
@@ -16727,11 +15748,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.matrix = matrix;
 	  }
 	}); /**
-<<<<<<< HEAD
-	     * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	     * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @fileoverview Emboss extending fabric.Image.filters.Convolute
 	     */
 
@@ -16785,19 +15802,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    /**
 	     * Applies filter to canvas element
-<<<<<<< HEAD
-	     * @param {Object} canvasEl Canvas element to apply filter to
-	     */
-	    applyTo: function applyTo(canvasEl) {
-	        // eslint-disable-line
-=======
 	     * @param {Object} canvas Canvas object passed by fabric
 	     */
 	    applyTo: function applyTo(canvas) {
 	        // eslint-disable-line
 	        var canvasEl = canvas.canvasEl;
 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	        var context = canvasEl.getContext('2d');
 	        var imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height);
 	        var data = imageData.data;
@@ -16858,11 +15868,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return color;
 	    }
 	}); /**
-<<<<<<< HEAD
-	     * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	     * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	     * @fileoverview ColorFilter extending fabric.Image.filters.BaseFilter
 	     */
 
@@ -16906,11 +15912,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview Shape component
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -17399,11 +16401,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Shape resize helper
 	 */
 	var DIVISOR = {
@@ -17432,14 +16430,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @ignore
 	 */
 	function setStartPoint(shape) {
-<<<<<<< HEAD
-	    var originX = shape.getOriginX();
-	    var originY = shape.getOriginY();
-=======
 	    var originX = shape.originX,
 	        originY = shape.originY;
 
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    var originKey = originX.substring(0, 1) + originY.substring(0, 1);
 
 	    shape.startPoint = shape.origins[originKey];
@@ -17475,11 +16468,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @ignore
 	 */
 	function hasCenterOrigin(shape) {
-<<<<<<< HEAD
-	    return shape.getOriginX() === 'center' && shape.getOriginY() === 'center';
-=======
 	    return shape.originX === 'center' && shape.originY === 'center';
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	}
 
 	/**
@@ -17490,23 +16479,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	function adjustOriginByStartPoint(pointer, shape) {
 	    var centerPoint = shape.getPointByOrigin('center', 'center');
-<<<<<<< HEAD
-	    var angle = -shape.getAngle();
-=======
 	    var angle = -shape.angle;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    var originPositions = getPositionsOfRotatedOrigin(centerPoint, pointer, angle);
 	    var originX = originPositions.originX,
 	        originY = originPositions.originY;
 
 	    var origin = shape.getPointByOrigin(originX, originY);
-<<<<<<< HEAD
-	    var left = shape.getLeft() - (centerPoint.x - origin.x);
-	    var top = shape.getTop() - (centerPoint.x - origin.y);
-=======
 	    var left = shape.left - (centerPoint.x - origin.x);
 	    var top = shape.top - (centerPoint.x - origin.y);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	    shape.set({
 	        originX: originX,
@@ -17526,11 +16506,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	function adjustOriginByMovingPointer(pointer, shape) {
 	    var origin = shape.startPoint;
-<<<<<<< HEAD
-	    var angle = -shape.getAngle();
-=======
 	    var angle = -shape.angle;
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	    var originPositions = getPositionsOfRotatedOrigin(origin, pointer, angle);
 	    var originX = originPositions.originX,
 	        originY = originPositions.originY;
@@ -17661,20 +16637,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    adjustOriginToCenter: function adjustOriginToCenter(shape) {
 	        var centerPoint = shape.getPointByOrigin('center', 'center');
-<<<<<<< HEAD
-	        var originX = shape.getOriginX();
-	        var originY = shape.getOriginY();
-	        var origin = shape.getPointByOrigin(originX, originY);
-	        var left = shape.getLeft() + (centerPoint.x - origin.x);
-	        var top = shape.getTop() + (centerPoint.y - origin.y);
-=======
 	        var originX = shape.originX,
 	            originY = shape.originY;
 
 	        var origin = shape.getPointByOrigin(originX, originY);
 	        var left = shape.left + (centerPoint.x - origin.x);
 	        var top = shape.top + (centerPoint.y - origin.y);
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 
 	        shape.set({
 	            hasControls: true,
@@ -17712,11 +16680,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview CropperDrawingMode class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -17780,11 +16744,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @fileoverview DrawingMode interface
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
@@ -17882,11 +16842,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview FreeDrawingMode class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -17967,11 +16923,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview LineDrawingMode class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -18052,11 +17004,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview ShapeDrawingMode class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -18136,11 +17084,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-<<<<<<< HEAD
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @fileoverview TextDrawingMode class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -18226,11 +17170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var componentNames = _consts2.default.componentNames,
 	    commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Add an icon
 	                                                   */
 
@@ -18298,11 +17238,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Add an image object
 	                                                   */
 
@@ -18362,11 +17298,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var commandNames = _consts2.default.commandNames,
 	    rejectMessages = _consts2.default.rejectMessages; /**
-<<<<<<< HEAD
-	                                                       * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                       * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                       * @fileoverview Add an object
 	                                                       */
 
@@ -18433,11 +17365,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var componentNames = _consts2.default.componentNames,
 	    commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Add a shape
 	                                                   */
 
@@ -18513,11 +17441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var componentNames = _consts2.default.componentNames,
 	    commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Add a text object
 	                                                   */
 
@@ -18587,11 +17511,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Apply a filter into an image
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -18689,11 +17609,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var componentNames = _consts2.default.componentNames,
 	    rejectMessages = _consts2.default.rejectMessages,
 	    commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Change icon color
 	                                                   */
 
@@ -18774,11 +17690,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview change a shape
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -18868,11 +17780,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var componentNames = _consts2.default.componentNames,
 	    rejectMessages = _consts2.default.rejectMessages,
 	    commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Change a text
 	                                                   */
 
@@ -18947,11 +17855,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Change text styles
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -19036,11 +17940,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Clear all objects
 	                                                   */
 
@@ -19094,11 +17994,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Flip an image
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -19155,11 +18051,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Load a background (main) image
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -19247,11 +18139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Remove a filter from an image
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -19316,11 +18204,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var commandNames = _consts2.default.commandNames,
 	    rejectMessages = _consts2.default.rejectMessages; /**
-<<<<<<< HEAD
-	                                                       * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                       * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                       * @fileoverview Remove an object
 	                                                       */
 
@@ -19382,11 +18266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var commandNames = _consts2.default.commandNames; /**
-<<<<<<< HEAD
-	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                   * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                   * @fileoverview Resize a canvas
 	                                                   */
 
@@ -19447,11 +18327,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Rotate an image
 	 */
 	var componentNames = _consts2.default.componentNames,
@@ -19460,36 +18336,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	var command = {
-<<<<<<< HEAD
-	  name: commandNames.ROTATE_IMAGE,
-
-	  /**
-	   * Rotate an image
-	   * @param {Graphics} graphics - Graphics instance
-	   * @param {string} type - 'rotate' or 'setAngle'
-	   * @param {number} angle - angle value (degree)
-	   * @returns {Promise}
-	   */
-	  execute: function execute(graphics, type, angle) {
-	    var rotationComp = graphics.getComponent(ROTATION);
-
-	    this.undoData.angle = rotationComp.getCurrentAngle();
-
-	    return rotationComp[type](angle);
-	  },
-
-	  /**
-	   * @param {Graphics} graphics - Graphics instance
-	   * @returns {Promise}
-	   */
-	  undo: function undo(graphics) {
-	    var rotationComp = graphics.getComponent(ROTATION);
-	    var angle = this.undoData.angle;
-
-
-	    return rotationComp.setAngle(angle);
-	  }
-=======
 	    name: commandNames.ROTATE_IMAGE,
 
 	    /**
@@ -19527,7 +18373,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return rotationComp.rotate(-angle);
 	    }
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	};
 
 	_command2.default.register(command);
@@ -19559,11 +18404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-<<<<<<< HEAD
-	 * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	 * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	 * @fileoverview Set object properties
 	 */
 	var commandNames = _consts2.default.commandNames,
@@ -19647,11 +18488,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var commandNames = _consts2.default.commandNames,
 	    rejectMessages = _consts2.default.rejectMessages; /**
-<<<<<<< HEAD
-	                                                       * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
-=======
 	                                                       * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
->>>>>>> a3813e1b52335e1db4e6777dee0eed031cecec1f
 	                                                       * @fileoverview Set object properties
 	                                                       */
 
